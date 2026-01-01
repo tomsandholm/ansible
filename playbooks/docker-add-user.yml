@@ -1,0 +1,10 @@
+---
+- name: set user docker group
+  hosts: docker
+  become: true
+  tasks:
+    - name: Add user to docker
+      ansible.builtin.user:
+        name: "{{ username }}"
+        groups: docker
+        append: yes

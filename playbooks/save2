@@ -1,0 +1,28 @@
+ok: [jagent01.tsand.org] => {
+    "shell_output.stdout_lines": [
+        " 10.3M sandholm",
+        "168.0K ansible",
+        " 32.0K jenkins"
+    ]
+}
+ok: [jendock.tsand.org] => {
+    "shell_output.stdout_lines": [
+        " 12.7M sandholm",
+        "168.0K ansible",
+        " 20.0K jenkins"
+    ]
+}
+ok: [jagent02.tsand.org] => {
+    "shell_output.stdout_lines": [
+        " 10.3M sandholm",
+        "168.0K ansible",
+        " 24.0K jenkins"
+    ]
+}
+ok: [beast5.tsand.org] => {
+    "shell_output.stdout_lines": [
+        "381.0G sandholm",
+        "424.0K ansible",
+        "     0 .directory"
+    ]
+}

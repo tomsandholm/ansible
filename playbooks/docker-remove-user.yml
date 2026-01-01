@@ -1,0 +1,10 @@
+---
+- name: remove user docker group
+  hosts: docker
+  become: true
+  tasks:
+    - name: remove user from docker
+      ansible.builtin.user:
+        name: "{{ username }}"
+        groups: docker
+        append: no

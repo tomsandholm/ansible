@@ -1,0 +1,13 @@
+---
+- name: Show /home usage
+  hosts: all
+  become: yes
+  tasks:
+    - name: show /home usage
+      ansible.builtin.shell: |
+        duc ls -d /var/local/duc.db /home
+      register:  shell_output
+
+    - name: Display collection stats
+      ansible.builtin.debug:
+        var: shell_output.stdout_lines

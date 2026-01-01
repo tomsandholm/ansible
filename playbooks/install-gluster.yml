@@ -1,0 +1,15 @@
+---
+- name: Install gluster
+  hosts: gluster
+  become: true
+  tasks:
+    - name: Update apt package index
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install gluster
+      ansible.builtin.package:
+        name: glusterfs-server
+        state: present
+      become: yes
+

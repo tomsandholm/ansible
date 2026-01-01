@@ -1,0 +1,13 @@
+---
+- name: List Jenkins Plugins
+  hosts: jenkins
+  become: yes
+
+  tasks:
+  - name: execute jenkins cli list-plugins command
+    command: ssh -l ansible -p 8022 jendock.tsand.org help install-plugin $(<{{ jenkins-plugin-list }})
+    register: jenkins_plugin_list
+
+  - name: Display Jenkins Plugins
+    debug:
+      var: jenkins_plugins_list.stdout_lines

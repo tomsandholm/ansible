@@ -1,0 +1,6 @@
+---
+- name: 'Install NGINX Open Source'
+  hosts: all
+  become: true
+  roles:
+    - role: nginxinc.nginx

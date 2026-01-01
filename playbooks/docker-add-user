@@ -1,0 +1,4 @@
+#! /bin/bash
+# vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4 expandtab:
+
+ansible-playbook docker-add-user.yml --extra-vars "username=${1?Must specify username}"

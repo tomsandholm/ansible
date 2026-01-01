@@ -1,0 +1,11 @@
+---
+- name: 'Remove NGINX Open Source'
+  hosts: all
+  become: true
+
+  tasks:
+    - name: remove nginx
+      ansible.builtin.apt:
+        pkg: nginx
+        state: absent
+  

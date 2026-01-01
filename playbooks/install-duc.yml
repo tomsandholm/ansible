@@ -1,0 +1,14 @@
+---
+- name: Install duc on Ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install duc
+      apt:
+        name: duc
+        state: present
+

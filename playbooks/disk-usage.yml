@@ -1,0 +1,11 @@
+---
+- name: Show /home usage
+  hosts: all
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: show /home usage
+      ansible.builtin.debug: 
+        var: item
+      loop: "{{ ansible_facts.mounts | select('match','/') | list }}"
+      when: ansible_facts.mounts is defined and ansible_facts.mounts | length > 0

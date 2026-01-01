@@ -1,0 +1,4 @@
+#! /bin/bash
+# vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4 expandtab:
+
+ansible docker --become -m shell -a "usermod -rG docker ${1?Must specify user}"

@@ -1,0 +1,22 @@
+---
+- name: Manage /etc/hosts file
+  hosts: all
+  become: true # Run tasks with elevated privileges
+
+  tasks:
+    - name: Backup /etc/hosts
+      ansible.builtin.copy:
+        src: /etc/hosts
+        dest: /etc/hosts.bak_{{ ansible_date_time.iso8601_basic_short }} # Adds a timestamp to the backup file
+        remote_src: yes # Source is on the remote host
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Copy new /etc/hosts file
+      ansible.builtin.copy:
+        src: /home/ansible/hosts # Path to the new hosts file on the Ansible control machine
+        dest: /etc/hosts
+        owner: root
+        group: root
+        mode: '0644'

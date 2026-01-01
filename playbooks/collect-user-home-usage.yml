@@ -1,0 +1,25 @@
+---
+- name: Collect user home directory usage
+  hosts: all # Replace with your target host(s) or group
+  become: yes # Use sudo to run commands as root, necessary for accessing all home directories
+  gather_facts: false # No need to gather facts for this specific task
+
+  tasks:
+    - name: Find all user home directories
+      ansible.builtin.find:
+        paths: /home
+        file_type: directory
+        recurse: no # Do not recurse into subdirectories of /home
+      register: home_dirs
+
+    - name: Get disk usage for each home directory
+      ansible.builtin.shell: "du -sh {{ item.path }}"
+      loop: "{{ home_dirs.files }}"
+      register: home_dir_usage
+
+    - name: Display home directory usage
+      ansible.builtin.debug:
+        msg: "Home directory {{ item.item.path }} usage: {{ item.stdout }}"
+      loop: "{{ home_dir_usage.results }}"
+      loop_control:
+        label: "{{ item.item.path }}"

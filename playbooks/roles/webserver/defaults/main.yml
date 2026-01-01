@@ -1,0 +1,4 @@
+---
+# defaults file for webserver
+nginx_version: 1.24.0-2ubuntu7
+nginx_custom_directory: /var/www/example_domain

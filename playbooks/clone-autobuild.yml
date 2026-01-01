@@ -1,0 +1,25 @@
+---
+- name: clone autobuild
+  hosts: all
+  become: true
+  vars:
+    git_user: "tomsandholm"
+    git_pat: "{{ lookup('ansible.builtin.file', '/home/ansible/secret/tomsand') }}"
+    repo_url: "https://{{ git_user }}:{{ git_pat }}@github.com/{{ git_user }}/autobuild.git"
+    dest_path: "/tmp/autobuild"
+
+  tasks:
+    - name: dest dir
+      ansible.builtin.file:
+        path: "{{ dest_path }}"
+        state: directory
+        mode: '0755'
+
+    - name: clone
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ dest_path }}"
+        clone: yes
+        update: yes
+        version: "main"
+        force: true
