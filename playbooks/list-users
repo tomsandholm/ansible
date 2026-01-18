@@ -1,0 +1,3 @@
+#! /bin/bash
+
+ansible-playbook list-users.yml | sed -e '1,/TASK \[Display.*/d' -e 's/\\n//g' -e '/^$/,$d' | paste - - - | sed -e 's/ok: \[//g' -e 's/\] => {//g' -e 's/[[:space:]]*"msg": "-//g' -e 's/-//g' -e 's/"[[:space:]]*}//g'
