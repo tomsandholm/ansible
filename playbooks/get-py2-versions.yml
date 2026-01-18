@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+    - name: Gather package facts
+      ansible.builtin.package_facts:
+        manager: auto
+    - name: Display all installed Python packages
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts.packages[item] }} | to_yaml"
+      loop: "{{ ansible_facts.packages | select('search', 'python2.[0-9][0-9]*$') }}"
+      when: item in ansible_facts.packages
+

@@ -1,2192 +1,1159 @@
-beast5.tsand.org | SUCCESS => {
-    "ansible_facts": {
-        "ansible_all_ipv4_addresses": [
-            "172.18.0.1",
-            "192.168.122.1",
-            "172.17.0.1",
-            "10.0.0.44",
-            "192.168.1.90",
-            "192.168.1.45"
-        ],
-        "ansible_all_ipv6_addresses": [
-            "fe80::fc54:ff:fe60:6774",
-            "fe80::fc54:ff:fe90:dfed",
-            "fe80::fc54:ff:fec3:eafa",
-            "2601:18c:8501:5a50::bc2",
-            "2601:18c:8501:5a50:e253:b4fa:906:f1e2",
-            "fe80::6519:40b1:e771:613e",
-            "2601:18c:8501:5a50:218f:eb8c:3a04:774d",
-            "2601:18c:8501:5a50:2243:a3bf:e096:b33a",
-            "2601:18c:8501:5a50:ea13:d1f0:c62a:fdb3",
-            "fe80::fc54:ff:fed0:4581",
-            "fd12:e8a0:f6c4:3c79:cba0:262e:6db:380b",
-            "fe80::e170:b562:9622:a3a9",
-            "fd12:e8a0:f6c4:3c79:25b3:de7c:2290:492f",
-            "fd12:e8a0:f6c4:3c79:8aa3:6dd1:5fc4:51ef",
-            "fd12:e8a0:f6c4:3c79:bc1:e816:a62f:1895",
-            "fd12:e8a0:f6c4:3c79:2db7:f87:3f51:ed03"
-        ],
-        "ansible_apparmor": {
-            "status": "enabled"
-        },
-        "ansible_architecture": "x86_64",
-        "ansible_bios_date": "12/26/2024",
-        "ansible_bios_vendor": "ASUSTeK COMPUTER INC.",
-        "ansible_bios_version": "CRARL579.0017.2024.1226.0851",
-        "ansible_board_asset_tag": "NA",
-        "ansible_board_name": "NUC15CRSU9",
-        "ansible_board_serial": "NA",
-        "ansible_board_vendor": "ASUSTeK COMPUTER INC.",
-        "ansible_board_version": "60AS00K0-MBLA02",
-        "ansible_br0": {
-            "active": true,
-            "device": "br0",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "on",
-                "tx_fcoe_segmentation": "off [requested on]",
-                "tx_gre_csum_segmentation": "on",
-                "tx_gre_segmentation": "on",
-                "tx_gso_list": "off [requested on]",
-                "tx_gso_partial": "on",
-                "tx_gso_robust": "off [requested on]",
-                "tx_ipxip4_segmentation": "on",
-                "tx_ipxip6_segmentation": "on",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "off [requested on]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "on",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "on",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "on",
-                "tx_udp_tnl_segmentation": "on",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "id": "8000.88aedd673b74",
-            "interfaces": [
-                "vnet2",
-                "vnet0",
-                "enp86s0",
-                "vnet3",
-                "vnet1"
-            ],
-            "ipv4": {
-                "address": "10.0.0.44",
-                "broadcast": "10.0.0.255",
-                "netmask": "255.255.255.0",
-                "network": "10.0.0.0",
-                "prefix": "24"
-            },
-            "ipv6": [
-                {
-                    "address": "2601:18c:8501:5a50::bc2",
-                    "prefix": "128",
-                    "scope": "global"
-                },
-                {
-                    "address": "2601:18c:8501:5a50:e253:b4fa:906:f1e2",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "fe80::6519:40b1:e771:613e",
-                    "prefix": "64",
-                    "scope": "link"
-                },
-                {
-                    "address": "2601:18c:8501:5a50:218f:eb8c:3a04:774d",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "2601:18c:8501:5a50:2243:a3bf:e096:b33a",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "2601:18c:8501:5a50:ea13:d1f0:c62a:fdb3",
-                    "prefix": "64",
-                    "scope": "global"
-                }
-            ],
-            "macaddress": "88:ae:dd:67:3b:74",
-            "mtu": 1500,
-            "promisc": false,
-            "speed": 10000,
-            "stp": false,
-            "timestamping": [],
-            "type": "bridge"
-        },
-        "ansible_br_a6159d3d1310": {
-            "active": false,
-            "device": "br-a6159d3d1310",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "on",
-                "tx_fcoe_segmentation": "on",
-                "tx_gre_csum_segmentation": "on",
-                "tx_gre_segmentation": "on",
-                "tx_gso_list": "on",
-                "tx_gso_partial": "on",
-                "tx_gso_robust": "on",
-                "tx_ipxip4_segmentation": "on",
-                "tx_ipxip6_segmentation": "on",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "on",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "on",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "on",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "on",
-                "tx_udp_tnl_segmentation": "on",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "id": "8000.467b65b22916",
-            "interfaces": [],
-            "ipv4": {
-                "address": "172.18.0.1",
-                "broadcast": "172.18.255.255",
-                "netmask": "255.255.0.0",
-                "network": "172.18.0.0",
-                "prefix": "16"
-            },
-            "macaddress": "46:7b:65:b2:29:16",
-            "mtu": 1500,
-            "promisc": false,
-            "speed": -1,
-            "stp": false,
-            "timestamping": [],
-            "type": "bridge"
-        },
-        "ansible_chassis_asset_tag": "NA",
-        "ansible_chassis_serial": "NA",
-        "ansible_chassis_vendor": "ASUSTeK COMPUTER INC.",
-        "ansible_chassis_version": "2.0",
-        "ansible_cmdline": {
-            "BOOT_IMAGE": "/boot/vmlinuz-6.14.0-36-generic",
-            "quiet": true,
-            "ro": true,
-            "root": "/dev/nvme0n1p2",
-            "splash": true,
-            "vt.handoff": "7"
-        },
-        "ansible_date_time": {
-            "date": "2025-11-25",
-            "day": "25",
-            "epoch": "1764107815",
-            "epoch_int": "1764107815",
-            "hour": "16",
-            "iso8601": "2025-11-25T21:56:55Z",
-            "iso8601_basic": "20251125T165655051021",
-            "iso8601_basic_short": "20251125T165655",
-            "iso8601_micro": "2025-11-25T21:56:55.051021Z",
-            "minute": "56",
-            "month": "11",
-            "second": "55",
-            "time": "16:56:55",
-            "tz": "EST",
-            "tz_dst": "EDT",
-            "tz_offset": "-0500",
-            "weekday": "Tuesday",
-            "weekday_number": "2",
-            "weeknumber": "47",
-            "year": "2025"
-        },
-        "ansible_default_ipv4": {
-            "address": "10.0.0.44",
-            "alias": "br0",
-            "broadcast": "10.0.0.255",
-            "gateway": "10.0.0.1",
-            "interface": "br0",
-            "macaddress": "88:ae:dd:67:3b:74",
-            "mtu": 1500,
-            "netmask": "255.255.255.0",
-            "network": "10.0.0.0",
-            "prefix": "24",
-            "type": "bridge"
-        },
-        "ansible_default_ipv6": {
-            "address": "2601:18c:8501:5a50:218f:eb8c:3a04:774d",
-            "gateway": "fe80::e2db:d1ff:fee3:150d",
-            "interface": "br0",
-            "macaddress": "88:ae:dd:67:3b:74",
-            "mtu": 1500,
-            "prefix": "64",
-            "scope": "global",
-            "type": "bridge"
-        },
-        "ansible_device_links": {
-            "ids": {
-                "nvme0n1": [
-                    "nvme-CT4000P3PSSD8_2508E9A97594",
-                    "nvme-CT4000P3PSSD8_2508E9A97594_1",
-                    "nvme-eui.6479a7a300000040"
-                ],
-                "nvme0n1p1": [
-                    "nvme-CT4000P3PSSD8_2508E9A97594-part1",
-                    "nvme-CT4000P3PSSD8_2508E9A97594_1-part1",
-                    "nvme-eui.6479a7a300000040-part1"
-                ],
-                "nvme0n1p2": [
-                    "nvme-CT4000P3PSSD8_2508E9A97594-part2",
-                    "nvme-CT4000P3PSSD8_2508E9A97594_1-part2",
-                    "nvme-eui.6479a7a300000040-part2"
-                ]
-            },
-            "labels": {
-                "nvme0n1p2": [
-                    "kubuntu_2404"
-                ]
-            },
-            "masters": {},
-            "uuids": {
-                "nvme0n1p1": [
-                    "D7B6-97A8"
-                ],
-                "nvme0n1p2": [
-                    "b3635d1a-af1c-4edc-9434-66eced0b4f72"
-                ]
-            }
-        },
-        "ansible_devices": {
-            "loop0": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "8",
-                "sectorsize": "512",
-                "size": "4.00 KB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop1": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "343040",
-                "sectorsize": "512",
-                "size": "167.50 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop10": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "187776",
-                "sectorsize": "512",
-                "size": "91.69 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop11": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "103976",
-                "sectorsize": "512",
-                "size": "50.77 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop12": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "134968",
-                "sectorsize": "512",
-                "size": "65.90 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop13": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "134968",
-                "sectorsize": "512",
-                "size": "65.90 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop14": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "104296",
-                "sectorsize": "512",
-                "size": "50.93 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop15": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "0",
-                "sectorsize": "512",
-                "size": "0.00 Bytes",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop16": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "465256",
-                "sectorsize": "512",
-                "size": "227.18 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop17": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "464296",
-                "sectorsize": "512",
-                "size": "226.71 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop2": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "151368",
-                "sectorsize": "512",
-                "size": "73.91 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop3": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "151456",
-                "sectorsize": "512",
-                "size": "73.95 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop4": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "512176",
-                "sectorsize": "512",
-                "size": "250.09 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop5": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "22800",
-                "sectorsize": "512",
-                "size": "11.13 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop6": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "512216",
-                "sectorsize": "512",
-                "size": "250.11 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop7": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "37864",
-                "sectorsize": "512",
-                "size": "18.49 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop8": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "1056784",
-                "sectorsize": "512",
-                "size": "516.01 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "loop9": {
-                "holders": [],
-                "host": "",
-                "links": {
-                    "ids": [],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": null,
-                "partitions": {},
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "1057184",
-                "sectorsize": "512",
-                "size": "516.20 MB",
-                "support_discard": "4096",
-                "vendor": null,
-                "virtual": 1
-            },
-            "nvme0n1": {
-                "holders": [],
-                "host": "Non-Volatile memory controller: Micron/Crucial Technology Device 5421 (rev 01)",
-                "links": {
-                    "ids": [
-                        "nvme-CT4000P3PSSD8_2508E9A97594",
-                        "nvme-CT4000P3PSSD8_2508E9A97594_1",
-                        "nvme-eui.6479a7a300000040"
-                    ],
-                    "labels": [],
-                    "masters": [],
-                    "uuids": []
-                },
-                "model": "CT4000P3PSSD8",
-                "partitions": {
-                    "nvme0n1p1": {
-                        "holders": [],
-                        "links": {
-                            "ids": [
-                                "nvme-CT4000P3PSSD8_2508E9A97594-part1",
-                                "nvme-CT4000P3PSSD8_2508E9A97594_1-part1",
-                                "nvme-eui.6479a7a300000040-part1"
-                            ],
-                            "labels": [],
-                            "masters": [],
-                            "uuids": [
-                                "D7B6-97A8"
-                            ]
-                        },
-                        "sectors": "614400",
-                        "sectorsize": 512,
-                        "size": "300.00 MB",
-                        "start": "4096",
-                        "uuid": "D7B6-97A8"
-                    },
-                    "nvme0n1p2": {
-                        "holders": [],
-                        "links": {
-                            "ids": [
-                                "nvme-CT4000P3PSSD8_2508E9A97594-part2",
-                                "nvme-CT4000P3PSSD8_2508E9A97594_1-part2",
-                                "nvme-eui.6479a7a300000040-part2"
-                            ],
-                            "labels": [
-                                "kubuntu_2404"
-                            ],
-                            "masters": [],
-                            "uuids": [
-                                "b3635d1a-af1c-4edc-9434-66eced0b4f72"
-                            ]
-                        },
-                        "sectors": "7813413569",
-                        "sectorsize": 512,
-                        "size": "3.64 TB",
-                        "start": "618496",
-                        "uuid": "b3635d1a-af1c-4edc-9434-66eced0b4f72"
-                    }
-                },
-                "removable": "0",
-                "rotational": "0",
-                "sas_address": null,
-                "sas_device_handle": null,
-                "scheduler_mode": "none",
-                "sectors": "7814037168",
-                "sectorsize": "512",
-                "serial": "2508E9A97594",
-                "size": "3.64 TB",
-                "support_discard": "512",
-                "vendor": null,
-                "virtual": 1
-            }
-        },
-        "ansible_distribution": "Ubuntu",
-        "ansible_distribution_file_parsed": true,
-        "ansible_distribution_file_path": "/etc/os-release",
-        "ansible_distribution_file_variety": "Debian",
-        "ansible_distribution_major_version": "24",
-        "ansible_distribution_release": "noble",
-        "ansible_distribution_version": "24.04",
-        "ansible_dns": {
-            "nameservers": [
-                "127.0.0.53"
-            ],
-            "options": {
-                "edns0": true,
-                "trust-ad": true
-            },
-            "search": [
-                "."
-            ]
-        },
-        "ansible_docker0": {
-            "active": false,
-            "device": "docker0",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "on",
-                "tx_fcoe_segmentation": "on",
-                "tx_gre_csum_segmentation": "on",
-                "tx_gre_segmentation": "on",
-                "tx_gso_list": "on",
-                "tx_gso_partial": "on",
-                "tx_gso_robust": "on",
-                "tx_ipxip4_segmentation": "on",
-                "tx_ipxip6_segmentation": "on",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "on",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "on",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "on",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "on",
-                "tx_udp_tnl_segmentation": "on",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "id": "8000.4664957e558c",
-            "interfaces": [],
-            "ipv4": {
-                "address": "172.17.0.1",
-                "broadcast": "172.17.255.255",
-                "netmask": "255.255.0.0",
-                "network": "172.17.0.0",
-                "prefix": "16"
-            },
-            "macaddress": "46:64:95:7e:55:8c",
-            "mtu": 1500,
-            "promisc": false,
-            "speed": -1,
-            "stp": false,
-            "timestamping": [],
-            "type": "bridge"
-        },
-        "ansible_domain": "tsand.org",
-        "ansible_effective_group_id": 1001,
-        "ansible_effective_user_id": 1001,
-        "ansible_enp86s0": {
-            "active": true,
-            "device": "enp86s0",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on [fixed]",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "on",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off",
-                "receive_hashing": "on",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "on",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "on",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "on",
-                "tx_gre_segmentation": "on",
-                "tx_gso_list": "off [fixed]",
-                "tx_gso_partial": "on",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "on",
-                "tx_ipxip6_segmentation": "on",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "off [fixed]",
-                "tx_sctp_segmentation": "off [fixed]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "off",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "off [fixed]",
-                "tx_udp_tnl_csum_segmentation": "on",
-                "tx_udp_tnl_segmentation": "on",
-                "tx_vlan_offload": "off",
-                "tx_vlan_stag_hw_insert": "off [fixed]",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "macaddress": "88:ae:dd:67:3b:74",
-            "module": "igc",
-            "mtu": 1500,
-            "pciid": "0000:56:00.0",
-            "phc_index": 0,
-            "promisc": true,
-            "speed": 1000,
-            "timestamping": [],
-            "type": "ether"
-        },
-        "ansible_env": {
-            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
-            "HOME": "/home/ansible",
-            "LANG": "en_US.UTF-8",
-            "LC_ADDRESS": "en_US.UTF-8",
-            "LC_IDENTIFICATION": "en_US.UTF-8",
-            "LC_MEASUREMENT": "en_US.UTF-8",
-            "LC_MONETARY": "en_US.UTF-8",
-            "LC_NAME": "en_US.UTF-8",
-            "LC_NUMERIC": "en_US.UTF-8",
-            "LC_PAPER": "en_US.UTF-8",
-            "LC_TELEPHONE": "en_US.UTF-8",
-            "LC_TIME": "en_US.UTF-8",
-            "LOGNAME": "ansible",
-            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
-            "PWD": "/home/ansible",
-            "SHELL": "/bin/sh",
-            "SSH_CLIENT": "10.0.0.110 58272 22",
-            "SSH_CONNECTION": "10.0.0.110 58272 10.0.0.44 22",
-            "SSH_TTY": "/dev/pts/8",
-            "TERM": "xterm-256color",
-            "USER": "ansible",
-            "XDG_RUNTIME_DIR": "/run/user/1001",
-            "XDG_SESSION_CLASS": "user",
-            "XDG_SESSION_ID": "1519",
-            "XDG_SESSION_TYPE": "tty"
-        },
-        "ansible_fibre_channel_wwn": [],
-        "ansible_fips": false,
-        "ansible_form_factor": "Mini PC",
-        "ansible_fqdn": "beast5.tsand.org",
-        "ansible_hostname": "beast5",
-        "ansible_hostnqn": "nqn.2014-08.org.nvmexpress:uuid:3e2c4f02-448b-b1ec-6032-88aedd673b74",
-        "ansible_interfaces": [
-            "docker0",
-            "vnet3",
-            "wlo1",
-            "vnet2",
-            "enp86s0",
-            "br0",
-            "vnet1",
-            "br-a6159d3d1310",
-            "vnet0",
-            "virbr0",
-            "lo"
-        ],
-        "ansible_is_chroot": false,
-        "ansible_iscsi_iqn": "",
-        "ansible_kernel": "6.14.0-36-generic",
-        "ansible_kernel_version": "#36~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Oct 15 15:45:17 UTC 2",
-        "ansible_lo": {
-            "active": true,
-            "device": "lo",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on [fixed]",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "on [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "on [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on [fixed]",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "on [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "off [fixed]",
-                "tx_gre_segmentation": "off [fixed]",
-                "tx_gso_list": "on",
-                "tx_gso_partial": "off [fixed]",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "off [fixed]",
-                "tx_ipxip6_segmentation": "off [fixed]",
-                "tx_nocache_copy": "off [fixed]",
-                "tx_scatter_gather": "on [fixed]",
-                "tx_scatter_gather_fraglist": "on [fixed]",
-                "tx_sctp_segmentation": "on",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "on",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "off [fixed]",
-                "tx_udp_tnl_segmentation": "off [fixed]",
-                "tx_vlan_offload": "off [fixed]",
-                "tx_vlan_stag_hw_insert": "off [fixed]",
-                "vlan_challenged": "on [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "ipv4": {
-                "address": "127.0.0.1",
-                "broadcast": "",
-                "netmask": "255.0.0.0",
-                "network": "127.0.0.0",
-                "prefix": "8"
-            },
-            "ipv6": [
-                {
-                    "address": "::1",
-                    "prefix": "128",
-                    "scope": "host"
-                }
-            ],
-            "mtu": 65536,
-            "promisc": false,
-            "timestamping": [],
-            "type": "loopback"
-        },
-        "ansible_loadavg": {
-            "15m": 1.0654296875,
-            "1m": 0.81787109375,
-            "5m": 0.966796875
-        },
-        "ansible_local": {},
-        "ansible_locally_reachable_ips": {
-            "ipv4": [
-                "10.0.0.44",
-                "127.0.0.0/8",
-                "127.0.0.1",
-                "172.17.0.1",
-                "172.18.0.1",
-                "192.168.1.45",
-                "192.168.1.90",
-                "192.168.122.1"
-            ],
-            "ipv6": [
-                "::1",
-                "2601:18c:8501:5a50::bc2",
-                "2601:18c:8501:5a50:218f:eb8c:3a04:774d",
-                "2601:18c:8501:5a50:2243:a3bf:e096:b33a",
-                "2601:18c:8501:5a50:e253:b4fa:906:f1e2",
-                "2601:18c:8501:5a50:ea13:d1f0:c62a:fdb3",
-                "fd12:e8a0:f6c4:3c79:bc1:e816:a62f:1895",
-                "fd12:e8a0:f6c4:3c79:25b3:de7c:2290:492f",
-                "fd12:e8a0:f6c4:3c79:2db7:f87:3f51:ed03",
-                "fd12:e8a0:f6c4:3c79:8aa3:6dd1:5fc4:51ef",
-                "fd12:e8a0:f6c4:3c79:cba0:262e:6db:380b",
-                "fe80::6519:40b1:e771:613e",
-                "fe80::e170:b562:9622:a3a9",
-                "fe80::fc54:ff:fe60:6774",
-                "fe80::fc54:ff:fe90:dfed",
-                "fe80::fc54:ff:fec3:eafa",
-                "fe80::fc54:ff:fed0:4581"
-            ]
-        },
-        "ansible_lsb": {
-            "codename": "noble",
-            "description": "Ubuntu 24.04.3 LTS",
-            "id": "Ubuntu",
-            "major_release": "24",
-            "release": "24.04"
-        },
-        "ansible_lvm": "N/A",
-        "ansible_machine": "x86_64",
-        "ansible_machine_id": "c253111cd8aa4d339bf2de66d6c4c759",
-        "ansible_memfree_mb": 3583,
-        "ansible_memory_mb": {
-            "nocache": {
-                "free": 80339,
-                "used": 15528
-            },
-            "real": {
-                "free": 3583,
-                "total": 95867,
-                "used": 92284
-            },
-            "swap": {
-                "cached": 0,
-                "free": 510,
-                "total": 511,
-                "used": 1
-            }
-        },
-        "ansible_memtotal_mb": 95867,
-        "ansible_mounts": [
-            {
-                "block_available": 489607893,
-                "block_size": 4096,
-                "block_total": 961061466,
-                "block_used": 471453573,
-                "device": "/dev/nvme0n1p2",
-                "fstype": "ext4",
-                "inode_available": 242650127,
-                "inode_total": 244170752,
-                "inode_used": 1520625,
-                "mount": "/",
-                "options": "rw,relatime",
-                "size_available": 2005433929728,
-                "size_total": 3936507764736,
-                "uuid": "b3635d1a-af1c-4edc-9434-66eced0b4f72"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 1,
-                "block_used": 1,
-                "device": "/dev/loop0",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 29,
-                "inode_used": 29,
-                "mount": "/snap/bare/5",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 131072,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 1340,
-                "block_used": 1340,
-                "device": "/dev/loop1",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 24755,
-                "inode_used": 24755,
-                "mount": "/snap/content-snap-core22/6",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 175636480,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 592,
-                "block_used": 592,
-                "device": "/dev/loop2",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 14263,
-                "inode_used": 14263,
-                "mount": "/snap/core22/2139",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 77594624,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 592,
-                "block_used": 592,
-                "device": "/dev/loop3",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 14268,
-                "inode_used": 14268,
-                "mount": "/snap/core22/2163",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 77594624,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 2001,
-                "block_used": 2001,
-                "device": "/dev/loop4",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 814,
-                "inode_used": 814,
-                "mount": "/snap/firefox/7298",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 262275072,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 90,
-                "block_used": 90,
-                "device": "/dev/loop5",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 65,
-                "inode_used": 65,
-                "mount": "/snap/firmware-updater/167",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 11796480,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 2001,
-                "block_used": 2001,
-                "device": "/dev/loop6",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 814,
-                "inode_used": 814,
-                "mount": "/snap/firefox/7355",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 262275072,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 148,
-                "block_used": 148,
-                "device": "/dev/loop7",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 68,
-                "inode_used": 68,
-                "mount": "/snap/firmware-updater/210",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 19398656,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 4129,
-                "block_used": 4129,
-                "device": "/dev/loop8",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 21133,
-                "inode_used": 21133,
-                "mount": "/snap/gnome-42-2204/202",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 541196288,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 4130,
-                "block_used": 4130,
-                "device": "/dev/loop9",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 21134,
-                "inode_used": 21134,
-                "mount": "/snap/gnome-42-2204/226",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 541327360,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 528,
-                "block_used": 528,
-                "device": "/dev/loop13",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 19,
-                "inode_used": 19,
-                "mount": "/snap/panda-video-converter/17",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 69206016,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 734,
-                "block_used": 734,
-                "device": "/dev/loop10",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 76208,
-                "inode_used": 76208,
-                "mount": "/snap/gtk-common-themes/1535",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 96206848,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 528,
-                "block_used": 528,
-                "device": "/dev/loop12",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 19,
-                "inode_used": 19,
-                "mount": "/snap/panda-video-converter/19",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 69206016,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 407,
-                "block_used": 407,
-                "device": "/dev/loop11",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 616,
-                "inode_used": 616,
-                "mount": "/snap/snapd/25202",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 53346304,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 408,
-                "block_used": 408,
-                "device": "/dev/loop14",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 617,
-                "inode_used": 617,
-                "mount": "/snap/snapd/25577",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 53477376,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 1818,
-                "block_used": 1818,
-                "device": "/dev/loop16",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 1524,
-                "inode_used": 1524,
-                "mount": "/snap/thunderbird/846",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 238288896,
-                "uuid": "N/A"
-            },
-            {
-                "block_available": 75074,
-                "block_size": 4096,
-                "block_total": 76646,
-                "block_used": 1572,
-                "device": "/dev/nvme0n1p1",
-                "fstype": "vfat",
-                "inode_available": 0,
-                "inode_total": 0,
-                "inode_used": 0,
-                "mount": "/boot/efi",
-                "options": "rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro",
-                "size_available": 307503104,
-                "size_total": 313942016,
-                "uuid": "D7B6-97A8"
-            },
-            {
-                "block_available": 0,
-                "block_size": 131072,
-                "block_total": 1814,
-                "block_used": 1814,
-                "device": "/dev/loop17",
-                "fstype": "squashfs",
-                "inode_available": 0,
-                "inode_total": 1524,
-                "inode_used": 1524,
-                "mount": "/snap/thunderbird/877",
-                "options": "ro,nodev,relatime,errors=continue,threads=single",
-                "size_available": 0,
-                "size_total": 237764608,
-                "uuid": "N/A"
-            }
-        ],
-        "ansible_nodename": "beast5",
-        "ansible_os_family": "Debian",
-        "ansible_pkg_mgr": "apt",
-        "ansible_proc_cmdline": {
-            "BOOT_IMAGE": "/boot/vmlinuz-6.14.0-36-generic",
-            "quiet": true,
-            "ro": true,
-            "root": [
-                "UUID=b3635d1a-af1c-4edc-9434-66eced0b4f72",
-                "/dev/nvme0n1p2"
-            ],
-            "splash": true,
-            "vt.handoff": "7"
-        },
-        "ansible_processor": [
-            "0",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "1",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "2",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "3",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "4",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "5",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "6",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "7",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "8",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "9",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "10",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "11",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "12",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "13",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "14",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H",
-            "15",
-            "GenuineIntel",
-            "Intel(R) Core(TM) Ultra 9 285H"
-        ],
-        "ansible_processor_cores": 16,
-        "ansible_processor_count": 1,
-        "ansible_processor_nproc": 16,
-        "ansible_processor_threads_per_core": 1,
-        "ansible_processor_vcpus": 16,
-        "ansible_product_name": "NUC15CRSU9",
-        "ansible_product_serial": "NA",
-        "ansible_product_uuid": "NA",
-        "ansible_product_version": "90AR00P3-M000M0",
-        "ansible_python": {
-            "executable": "/usr/bin/python3",
-            "has_sslcontext": true,
-            "type": "cpython",
-            "version": {
-                "major": 3,
-                "micro": 3,
-                "minor": 12,
-                "releaselevel": "final",
-                "serial": 0
-            },
-            "version_info": [
-                3,
-                12,
-                3,
-                "final",
-                0
-            ]
-        },
-        "ansible_python_version": "3.12.3",
-        "ansible_real_group_id": 1001,
-        "ansible_real_user_id": 1001,
-        "ansible_selinux": {
-            "status": "disabled"
-        },
-        "ansible_selinux_python_present": true,
-        "ansible_service_mgr": "systemd",
-        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKhqpe/Q5WF1rPYzk7F9/o3aQO2WNR47zYkHMSGaYNhz15jTUluifSloQ0fOxnywkVfqg7cqVvpzNn4obVT95Fs=",
-        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
-        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIG4S5wR+CdoJAnPdMQoGJo/WEDovMzpkqs2/ZSpWb9DP",
-        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
-        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQC4fe468uC10CtoLlcu7ujKIau0SG7XSIAgkVZt6dEaT8KTf6eIGOo5zS8wHabeHkC/85N4/3Lq8s02huJMA5eEameSX8J8VN4BLv+X21K58XdtiqMVZxXSOWnlQN6hBlXwzgl6NFnRhG3+S1PKdDkhRGtF8YkKLuItNpwOX272RG1paw5bnYC4/GKTDzA/lukBlS6QHRHCnUD1q0G4F00Gzlw6hQAQIiEHWTDmX9cgizW8r0UTh4bfaWtH5xaviDrqdgfDyDjNrKWkIeRryehdZpBcksKsnlJF7ubxLsDCRriS2tGdGRxfqMfrJverGEuU9PtstQPTDZJ34546QcGVoC9SG2iZWn/8XHSqSxKmv/9MOf+F1FY+sIR7ehPU/e1FLuNztH4chs+EOBu6Uqs/sq0Jh34T9OPXKkakluUvGcjskEV9dSPx286KKOH6ncjHDdWuqNsfDpmLkS2ypGOiPvqQpnD0rM76QqwIR4jpPtCeMYta5UzC/qpWA8voonk=",
-        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
-        "ansible_swapfree_mb": 510,
-        "ansible_swaptotal_mb": 511,
-        "ansible_system": "Linux",
-        "ansible_system_capabilities": [
-            ""
-        ],
-        "ansible_system_capabilities_enforced": "True",
-        "ansible_system_vendor": "ASUSTeK COMPUTER INC.",
-        "ansible_uptime_seconds": 258956,
-        "ansible_user_dir": "/home/ansible",
-        "ansible_user_gecos": "",
-        "ansible_user_gid": 1001,
-        "ansible_user_id": "ansible",
-        "ansible_user_shell": "/bin/sh",
-        "ansible_user_uid": 1001,
-        "ansible_userspace_architecture": "x86_64",
-        "ansible_userspace_bits": "64",
-        "ansible_virbr0": {
-            "active": false,
-            "device": "virbr0",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "on",
-                "tx_fcoe_segmentation": "on",
-                "tx_gre_csum_segmentation": "on",
-                "tx_gre_segmentation": "on",
-                "tx_gso_list": "on",
-                "tx_gso_partial": "on",
-                "tx_gso_robust": "on",
-                "tx_ipxip4_segmentation": "on",
-                "tx_ipxip6_segmentation": "on",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "on",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "on",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "on",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "on",
-                "tx_udp_tnl_segmentation": "on",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "id": "8000.525400e1ef99",
-            "interfaces": [],
-            "ipv4": {
-                "address": "192.168.122.1",
-                "broadcast": "192.168.122.255",
-                "netmask": "255.255.255.0",
-                "network": "192.168.122.0",
-                "prefix": "24"
-            },
-            "macaddress": "52:54:00:e1:ef:99",
-            "mtu": 1500,
-            "promisc": false,
-            "speed": -1,
-            "stp": true,
-            "timestamping": [],
-            "type": "bridge"
-        },
-        "ansible_virtualization_role": "host",
-        "ansible_virtualization_tech_guest": [],
-        "ansible_virtualization_tech_host": [
-            "kvm"
-        ],
-        "ansible_virtualization_type": "kvm",
-        "ansible_vnet0": {
-            "active": true,
-            "device": "vnet0",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "off [fixed]",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "off [fixed]",
-                "tx_gre_segmentation": "off [fixed]",
-                "tx_gso_list": "off [fixed]",
-                "tx_gso_partial": "off [fixed]",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "off [fixed]",
-                "tx_ipxip6_segmentation": "off [fixed]",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "off [fixed]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "off",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "off [fixed]",
-                "tx_udp_tnl_segmentation": "off [fixed]",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "ipv6": [
-                {
-                    "address": "fe80::fc54:ff:fe90:dfed",
-                    "prefix": "64",
-                    "scope": "link"
-                }
-            ],
-            "macaddress": "fe:54:00:90:df:ed",
-            "mtu": 1500,
-            "promisc": true,
-            "speed": 10000,
-            "timestamping": [],
-            "type": "ether"
-        },
-        "ansible_vnet1": {
-            "active": true,
-            "device": "vnet1",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "off [fixed]",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "off [fixed]",
-                "tx_gre_segmentation": "off [fixed]",
-                "tx_gso_list": "off [fixed]",
-                "tx_gso_partial": "off [fixed]",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "off [fixed]",
-                "tx_ipxip6_segmentation": "off [fixed]",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "off [fixed]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "off",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "off [fixed]",
-                "tx_udp_tnl_segmentation": "off [fixed]",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "ipv6": [
-                {
-                    "address": "fe80::fc54:ff:fed0:4581",
-                    "prefix": "64",
-                    "scope": "link"
-                }
-            ],
-            "macaddress": "fe:54:00:d0:45:81",
-            "mtu": 1500,
-            "promisc": true,
-            "speed": 10000,
-            "timestamping": [],
-            "type": "ether"
-        },
-        "ansible_vnet2": {
-            "active": true,
-            "device": "vnet2",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "off [fixed]",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "off [fixed]",
-                "tx_gre_segmentation": "off [fixed]",
-                "tx_gso_list": "off [fixed]",
-                "tx_gso_partial": "off [fixed]",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "off [fixed]",
-                "tx_ipxip6_segmentation": "off [fixed]",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "off [fixed]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "off",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "off [fixed]",
-                "tx_udp_tnl_segmentation": "off [fixed]",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "ipv6": [
-                {
-                    "address": "fe80::fc54:ff:fe60:6774",
-                    "prefix": "64",
-                    "scope": "link"
-                }
-            ],
-            "macaddress": "fe:54:00:60:67:74",
-            "mtu": 1500,
-            "promisc": true,
-            "speed": 10000,
-            "timestamping": [],
-            "type": "ether"
-        },
-        "ansible_vnet3": {
-            "active": true,
-            "device": "vnet3",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "off [fixed]",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "off [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "on",
-                "tx_checksum_ipv4": "off [fixed]",
-                "tx_checksum_ipv6": "off [fixed]",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "off [fixed]",
-                "tx_gre_segmentation": "off [fixed]",
-                "tx_gso_list": "off [fixed]",
-                "tx_gso_partial": "off [fixed]",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "off [fixed]",
-                "tx_ipxip6_segmentation": "off [fixed]",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "on",
-                "tx_sctp_segmentation": "off [fixed]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "on",
-                "tx_tcp_mangleid_segmentation": "off",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "on",
-                "tx_udp_tnl_csum_segmentation": "off [fixed]",
-                "tx_udp_tnl_segmentation": "off [fixed]",
-                "tx_vlan_offload": "on",
-                "tx_vlan_stag_hw_insert": "on",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "ipv6": [
-                {
-                    "address": "fe80::fc54:ff:fec3:eafa",
-                    "prefix": "64",
-                    "scope": "link"
-                }
-            ],
-            "macaddress": "fe:54:00:c3:ea:fa",
-            "mtu": 1500,
-            "promisc": true,
-            "speed": 10000,
-            "timestamping": [],
-            "type": "ether"
-        },
-        "ansible_wlo1": {
-            "active": true,
-            "device": "wlo1",
-            "features": {
-                "esp_hw_offload": "off [fixed]",
-                "esp_tx_csum_hw_offload": "off [fixed]",
-                "generic_receive_offload": "on",
-                "generic_segmentation_offload": "on",
-                "highdma": "on",
-                "hsr_dup_offload": "off [fixed]",
-                "hsr_fwd_offload": "off [fixed]",
-                "hsr_tag_ins_offload": "off [fixed]",
-                "hsr_tag_rm_offload": "off [fixed]",
-                "hw_tc_offload": "off [fixed]",
-                "l2_fwd_offload": "off [fixed]",
-                "large_receive_offload": "off [fixed]",
-                "loopback": "off [fixed]",
-                "macsec_hw_offload": "off [fixed]",
-                "ntuple_filters": "off [fixed]",
-                "receive_hashing": "off [fixed]",
-                "rx_all": "off [fixed]",
-                "rx_checksumming": "on [fixed]",
-                "rx_fcs": "off [fixed]",
-                "rx_gro_hw": "off [fixed]",
-                "rx_gro_list": "off",
-                "rx_udp_gro_forwarding": "off",
-                "rx_udp_tunnel_port_offload": "off [fixed]",
-                "rx_vlan_filter": "off [fixed]",
-                "rx_vlan_offload": "off [fixed]",
-                "rx_vlan_stag_filter": "off [fixed]",
-                "rx_vlan_stag_hw_parse": "off [fixed]",
-                "scatter_gather": "on",
-                "tcp_segmentation_offload": "on",
-                "tls_hw_record": "off [fixed]",
-                "tls_hw_rx_offload": "off [fixed]",
-                "tls_hw_tx_offload": "off [fixed]",
-                "tx_checksum_fcoe_crc": "off [fixed]",
-                "tx_checksum_ip_generic": "off [fixed]",
-                "tx_checksum_ipv4": "on",
-                "tx_checksum_ipv6": "on",
-                "tx_checksum_sctp": "off [fixed]",
-                "tx_checksumming": "on",
-                "tx_esp_segmentation": "off [fixed]",
-                "tx_fcoe_segmentation": "off [fixed]",
-                "tx_gre_csum_segmentation": "off [fixed]",
-                "tx_gre_segmentation": "off [fixed]",
-                "tx_gso_list": "off [fixed]",
-                "tx_gso_partial": "off [fixed]",
-                "tx_gso_robust": "off [fixed]",
-                "tx_ipxip4_segmentation": "off [fixed]",
-                "tx_ipxip6_segmentation": "off [fixed]",
-                "tx_nocache_copy": "off",
-                "tx_scatter_gather": "on",
-                "tx_scatter_gather_fraglist": "off [fixed]",
-                "tx_sctp_segmentation": "off [fixed]",
-                "tx_tcp6_segmentation": "on",
-                "tx_tcp_ecn_segmentation": "off [fixed]",
-                "tx_tcp_mangleid_segmentation": "off",
-                "tx_tcp_segmentation": "on",
-                "tx_tunnel_remcsum_segmentation": "off [fixed]",
-                "tx_udp_segmentation": "off [fixed]",
-                "tx_udp_tnl_csum_segmentation": "off [fixed]",
-                "tx_udp_tnl_segmentation": "off [fixed]",
-                "tx_vlan_offload": "off [fixed]",
-                "tx_vlan_stag_hw_insert": "off [fixed]",
-                "vlan_challenged": "off [fixed]"
-            },
-            "hw_timestamp_filters": [],
-            "ipv4": {
-                "address": "192.168.1.90",
-                "broadcast": "192.168.1.255",
-                "netmask": "255.255.255.0",
-                "network": "192.168.1.0",
-                "prefix": "24"
-            },
-            "ipv4_secondaries": [
-                {
-                    "address": "192.168.1.45",
-                    "broadcast": "192.168.1.255",
-                    "netmask": "255.255.255.0",
-                    "network": "192.168.1.0",
-                    "prefix": "24"
-                }
-            ],
-            "ipv6": [
-                {
-                    "address": "fd12:e8a0:f6c4:3c79:cba0:262e:6db:380b",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "fe80::e170:b562:9622:a3a9",
-                    "prefix": "64",
-                    "scope": "link"
-                },
-                {
-                    "address": "fd12:e8a0:f6c4:3c79:25b3:de7c:2290:492f",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "fd12:e8a0:f6c4:3c79:8aa3:6dd1:5fc4:51ef",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "fd12:e8a0:f6c4:3c79:bc1:e816:a62f:1895",
-                    "prefix": "64",
-                    "scope": "global"
-                },
-                {
-                    "address": "fd12:e8a0:f6c4:3c79:2db7:f87:3f51:ed03",
-                    "prefix": "64",
-                    "scope": "global"
-                }
-            ],
-            "macaddress": "d0:57:7e:ea:53:67",
-            "module": "iwlwifi",
-            "mtu": 1500,
-            "pciid": "0000:00:14.3",
-            "promisc": false,
-            "timestamping": [],
-            "type": "ether"
-        },
-        "gather_subset": [
-            "all"
-        ],
-        "module_setup": true
-    },
-    "changed": false
+
+PLAY [Discover installed Python versions] **************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [jagent02.tsand.org]
+ok: [jagent01.tsand.org]
+ok: [tom1.tsand.org]
+ok: [jendock.tsand.org]
+
+TASK [Ensure package facts are gathered] ***************************************
+ok: [tom1.tsand.org]
+ok: [jagent01.tsand.org]
+ok: [jagent02.tsand.org]
+ok: [jendock.tsand.org]
+
+TASK [Show all installed python3 packages] *************************************
+ok: [jagent01.tsand.org] => (item=libpython3-stdlib) => {
+    "msg": "[{'name': 'libpython3-stdlib', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
 }
+ok: [jagent01.tsand.org] => (item=libpython3.12-minimal) => {
+    "msg": "[{'name': 'libpython3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=libpython3.12-stdlib) => {
+    "msg": "[{'name': 'libpython3.12-stdlib', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=libpython3.12t64) => {
+    "msg": "[{'name': 'libpython3.12t64', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'libs', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3) => {
+    "msg": "[{'name': 'python3', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-apport) => {
+    "msg": "[{'name': 'python3-apport', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-apt) => {
+    "msg": "[{'name': 'python3-apt', 'version': '2.7.7ubuntu5.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-attr) => {
+    "msg": "[{'name': 'python3-attr', 'version': '23.2.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-automat) => {
+    "msg": "[{'name': 'python3-automat', 'version': '22.10.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-babel) => {
+    "msg": "[{'name': 'python3-babel', 'version': '2.10.3-3build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=libpython3-stdlib) => {
+    "msg": "[{'name': 'libpython3-stdlib', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-bcrypt) => {
+    "msg": "[{'name': 'python3-bcrypt', 'version': '3.2.2-1build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=libpython3.12-minimal) => {
+    "msg": "[{'name': 'libpython3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-blinker) => {
+    "msg": "[{'name': 'python3-blinker', 'version': '1.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=libpython3.12-stdlib) => {
+    "msg": "[{'name': 'libpython3.12-stdlib', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-boto3) => {
+    "msg": "[{'name': 'python3-boto3', 'version': '1.34.46+dfsg-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=libpython3.12t64) => {
+    "msg": "[{'name': 'libpython3.12t64', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'libs', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-botocore) => {
+    "msg": "[{'name': 'python3-botocore', 'version': '1.34.46+repack-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3) => {
+    "msg": "[{'name': 'python3', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-bpfcc) => {
+    "msg": "[{'name': 'python3-bpfcc', 'version': '0.29.1+ds-1ubuntu7', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=libpython3-stdlib) => {
+    "msg": "[{'name': 'libpython3-stdlib', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=libpython3-stdlib) => {
+    "msg": "[{'name': 'libpython3-stdlib', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-apport) => {
+    "msg": "[{'name': 'python3-apport', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-certifi) => {
+    "msg": "[{'name': 'python3-certifi', 'version': '2023.11.17-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=libpython3.12-minimal) => {
+    "msg": "[{'name': 'libpython3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-apt) => {
+    "msg": "[{'name': 'python3-apt', 'version': '2.7.7ubuntu5.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=libpython3.12-minimal) => {
+    "msg": "[{'name': 'libpython3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-cffi-backend) => {
+    "msg": "[{'name': 'python3-cffi-backend', 'version': '1.16.0-2build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=libpython3.12-stdlib) => {
+    "msg": "[{'name': 'libpython3.12-stdlib', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-attr) => {
+    "msg": "[{'name': 'python3-attr', 'version': '23.2.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=libpython3.12-stdlib) => {
+    "msg": "[{'name': 'libpython3.12-stdlib', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-chardet) => {
+    "msg": "[{'name': 'python3-chardet', 'version': '5.2.0+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=libpython3.12t64) => {
+    "msg": "[{'name': 'libpython3.12t64', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'libs', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-automat) => {
+    "msg": "[{'name': 'python3-automat', 'version': '22.10.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-click) => {
+    "msg": "[{'name': 'python3-click', 'version': '8.1.6-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=libpython3.12t64) => {
+    "msg": "[{'name': 'libpython3.12t64', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'libs', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3) => {
+    "msg": "[{'name': 'python3', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-babel) => {
+    "msg": "[{'name': 'python3-babel', 'version': '2.10.3-3build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-colorama) => {
+    "msg": "[{'name': 'python3-colorama', 'version': '0.4.6-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-apport) => {
+    "msg": "[{'name': 'python3-apport', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-bcrypt) => {
+    "msg": "[{'name': 'python3-bcrypt', 'version': '3.2.2-1build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=libpython3.8-minimal) => {
+    "msg": "[{'name': 'libpython3.8-minimal', 'version': '3.8.20-1+noble1', 'arch': 'amd64', 'category': 'python', 'origin': 'LP-PPA-deadsnakes', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-commandnotfound) => {
+    "msg": "[{'name': 'python3-commandnotfound', 'version': '23.04.0', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-apt) => {
+    "msg": "[{'name': 'python3-apt', 'version': '2.7.7ubuntu5.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-blinker) => {
+    "msg": "[{'name': 'python3-blinker', 'version': '1.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=libpython3.8-stdlib) => {
+    "msg": "[{'name': 'libpython3.8-stdlib', 'version': '3.8.20-1+noble1', 'arch': 'amd64', 'category': 'python', 'origin': 'LP-PPA-deadsnakes', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-compose) => {
+    "msg": "[{'name': 'python3-compose', 'version': '1.29.2-6ubuntu1', 'arch': 'all', 'category': 'universe/admin', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-attr) => {
+    "msg": "[{'name': 'python3-attr', 'version': '23.2.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-boto3) => {
+    "msg": "[{'name': 'python3-boto3', 'version': '1.34.46+dfsg-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3) => {
+    "msg": "[{'name': 'python3', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-configobj) => {
+    "msg": "[{'name': 'python3-configobj', 'version': '5.0.8-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-automat) => {
+    "msg": "[{'name': 'python3-automat', 'version': '22.10.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-botocore) => {
+    "msg": "[{'name': 'python3-botocore', 'version': '1.34.46+repack-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-apport) => {
+    "msg": "[{'name': 'python3-apport', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-constantly) => {
+    "msg": "[{'name': 'python3-constantly', 'version': '23.10.4-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-babel) => {
+    "msg": "[{'name': 'python3-babel', 'version': '2.10.3-3build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-bpfcc) => {
+    "msg": "[{'name': 'python3-bpfcc', 'version': '0.29.1+ds-1ubuntu7', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-cryptography) => {
+    "msg": "[{'name': 'python3-cryptography', 'version': '41.0.7-4ubuntu0.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-apt) => {
+    "msg": "[{'name': 'python3-apt', 'version': '2.7.7ubuntu5.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-bcrypt) => {
+    "msg": "[{'name': 'python3-bcrypt', 'version': '3.2.2-1build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-certifi) => {
+    "msg": "[{'name': 'python3-certifi', 'version': '2023.11.17-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-dateutil) => {
+    "msg": "[{'name': 'python3-dateutil', 'version': '2.8.2-3ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-attr) => {
+    "msg": "[{'name': 'python3-attr', 'version': '23.2.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-blinker) => {
+    "msg": "[{'name': 'python3-blinker', 'version': '1.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-cffi-backend) => {
+    "msg": "[{'name': 'python3-cffi-backend', 'version': '1.16.0-2build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-dbus) => {
+    "msg": "[{'name': 'python3-dbus', 'version': '1.3.2-5build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-boto3) => {
+    "msg": "[{'name': 'python3-boto3', 'version': '1.34.46+dfsg-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-chardet) => {
+    "msg": "[{'name': 'python3-chardet', 'version': '5.2.0+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-automat) => {
+    "msg": "[{'name': 'python3-automat', 'version': '22.10.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-debconf) => {
+    "msg": "[{'name': 'python3-debconf', 'version': '1.5.86ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-botocore) => {
+    "msg": "[{'name': 'python3-botocore', 'version': '1.34.46+repack-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-babel) => {
+    "msg": "[{'name': 'python3-babel', 'version': '2.10.3-3build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-click) => {
+    "msg": "[{'name': 'python3-click', 'version': '8.1.6-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-bcrypt) => {
+    "msg": "[{'name': 'python3-bcrypt', 'version': '3.2.2-1build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-bpfcc) => {
+    "msg": "[{'name': 'python3-bpfcc', 'version': '0.29.1+ds-1ubuntu7', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-colorama) => {
+    "msg": "[{'name': 'python3-colorama', 'version': '0.4.6-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-debian) => {
+    "msg": "[{'name': 'python3-debian', 'version': '0.1.49ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-blinker) => {
+    "msg": "[{'name': 'python3-blinker', 'version': '1.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-certifi) => {
+    "msg": "[{'name': 'python3-certifi', 'version': '2023.11.17-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-commandnotfound) => {
+    "msg": "[{'name': 'python3-commandnotfound', 'version': '23.04.0', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-distro) => {
+    "msg": "[{'name': 'python3-distro', 'version': '1.9.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-boto3) => {
+    "msg": "[{'name': 'python3-boto3', 'version': '1.34.46+dfsg-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-cffi-backend) => {
+    "msg": "[{'name': 'python3-cffi-backend', 'version': '1.16.0-2build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-compose) => {
+    "msg": "[{'name': 'python3-compose', 'version': '1.29.2-6ubuntu1', 'arch': 'all', 'category': 'universe/admin', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-distro-info) => {
+    "msg": "[{'name': 'python3-distro-info', 'version': '1.7build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-chardet) => {
+    "msg": "[{'name': 'python3-chardet', 'version': '5.2.0+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-configobj) => {
+    "msg": "[{'name': 'python3-configobj', 'version': '5.0.8-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-constantly) => {
+    "msg": "[{'name': 'python3-constantly', 'version': '23.10.4-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-click) => {
+    "msg": "[{'name': 'python3-click', 'version': '8.1.6-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-cryptography) => {
+    "msg": "[{'name': 'python3-cryptography', 'version': '41.0.7-4ubuntu0.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-botocore) => {
+    "msg": "[{'name': 'python3-botocore', 'version': '1.34.46+repack-1ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-distupgrade) => {
+    "msg": "[{'name': 'python3-distupgrade', 'version': '1:24.04.27', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-bpfcc) => {
+    "msg": "[{'name': 'python3-bpfcc', 'version': '0.29.1+ds-1ubuntu7', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-colorama) => {
+    "msg": "[{'name': 'python3-colorama', 'version': '0.4.6-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-docker) => {
+    "msg": "[{'name': 'python3-docker', 'version': '5.0.3-1ubuntu1.1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-dateutil) => {
+    "msg": "[{'name': 'python3-dateutil', 'version': '2.8.2-3ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-certifi) => {
+    "msg": "[{'name': 'python3-certifi', 'version': '2023.11.17-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-commandnotfound) => {
+    "msg": "[{'name': 'python3-commandnotfound', 'version': '23.04.0', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-dockerpty) => {
+    "msg": "[{'name': 'python3-dockerpty', 'version': '0.4.1-5', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-dbus) => {
+    "msg": "[{'name': 'python3-dbus', 'version': '1.3.2-5build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-cffi-backend) => {
+    "msg": "[{'name': 'python3-cffi-backend', 'version': '1.16.0-2build1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-compose) => {
+    "msg": "[{'name': 'python3-compose', 'version': '1.29.2-6ubuntu1', 'arch': 'all', 'category': 'universe/admin', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-debconf) => {
+    "msg": "[{'name': 'python3-debconf', 'version': '1.5.86ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-chardet) => {
+    "msg": "[{'name': 'python3-chardet', 'version': '5.2.0+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-docopt) => {
+    "msg": "[{'name': 'python3-docopt', 'version': '0.6.2-6', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-configobj) => {
+    "msg": "[{'name': 'python3-configobj', 'version': '5.0.8-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-debian) => {
+    "msg": "[{'name': 'python3-debian', 'version': '0.1.49ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-click) => {
+    "msg": "[{'name': 'python3-click', 'version': '8.1.6-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-dotenv) => {
+    "msg": "[{'name': 'python3-dotenv', 'version': '1.0.1-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-constantly) => {
+    "msg": "[{'name': 'python3-constantly', 'version': '23.10.4-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-distro) => {
+    "msg": "[{'name': 'python3-distro', 'version': '1.9.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-colorama) => {
+    "msg": "[{'name': 'python3-colorama', 'version': '0.4.6-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-cryptography) => {
+    "msg": "[{'name': 'python3-cryptography', 'version': '41.0.7-4ubuntu0.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-gdbm) => {
+    "msg": "[{'name': 'python3-gdbm', 'version': '3.12.3-0ubuntu1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-commandnotfound) => {
+    "msg": "[{'name': 'python3-commandnotfound', 'version': '23.04.0', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-distro-info) => {
+    "msg": "[{'name': 'python3-distro-info', 'version': '1.7build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-dateutil) => {
+    "msg": "[{'name': 'python3-dateutil', 'version': '2.8.2-3ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-configobj) => {
+    "msg": "[{'name': 'python3-configobj', 'version': '5.0.8-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-gi) => {
+    "msg": "[{'name': 'python3-gi', 'version': '3.48.2-1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-distupgrade) => {
+    "msg": "[{'name': 'python3-distupgrade', 'version': '1:24.04.27', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-dbus) => {
+    "msg": "[{'name': 'python3-dbus', 'version': '1.3.2-5build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-constantly) => {
+    "msg": "[{'name': 'python3-constantly', 'version': '23.10.4-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-docker) => {
+    "msg": "[{'name': 'python3-docker', 'version': '5.0.3-1ubuntu1.1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-hamcrest) => {
+    "msg": "[{'name': 'python3-hamcrest', 'version': '2.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-debconf) => {
+    "msg": "[{'name': 'python3-debconf', 'version': '1.5.86ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-cryptography) => {
+    "msg": "[{'name': 'python3-cryptography', 'version': '41.0.7-4ubuntu0.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-dockerpty) => {
+    "msg": "[{'name': 'python3-dockerpty', 'version': '0.4.1-5', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-httplib2) => {
+    "msg": "[{'name': 'python3-httplib2', 'version': '0.20.4-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-debian) => {
+    "msg": "[{'name': 'python3-debian', 'version': '0.1.49ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-dateutil) => {
+    "msg": "[{'name': 'python3-dateutil', 'version': '2.8.2-3ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-docopt) => {
+    "msg": "[{'name': 'python3-docopt', 'version': '0.6.2-6', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-dbus) => {
+    "msg": "[{'name': 'python3-dbus', 'version': '1.3.2-5build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-distro) => {
+    "msg": "[{'name': 'python3-distro', 'version': '1.9.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-hyperlink) => {
+    "msg": "[{'name': 'python3-hyperlink', 'version': '21.0.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-dotenv) => {
+    "msg": "[{'name': 'python3-dotenv', 'version': '1.0.1-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-debconf) => {
+    "msg": "[{'name': 'python3-debconf', 'version': '1.5.86ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-distro-info) => {
+    "msg": "[{'name': 'python3-distro-info', 'version': '1.7build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-gdbm) => {
+    "msg": "[{'name': 'python3-gdbm', 'version': '3.12.3-0ubuntu1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-idna) => {
+    "msg": "[{'name': 'python3-idna', 'version': '3.6-2ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-debian) => {
+    "msg": "[{'name': 'python3-debian', 'version': '0.1.49ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-distupgrade) => {
+    "msg": "[{'name': 'python3-distupgrade', 'version': '1:24.04.27', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-gi) => {
+    "msg": "[{'name': 'python3-gi', 'version': '3.48.2-1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-incremental) => {
+    "msg": "[{'name': 'python3-incremental', 'version': '22.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-distro) => {
+    "msg": "[{'name': 'python3-distro', 'version': '1.9.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-docker) => {
+    "msg": "[{'name': 'python3-docker', 'version': '5.0.3-1ubuntu1.1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-hamcrest) => {
+    "msg": "[{'name': 'python3-hamcrest', 'version': '2.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-distro-info) => {
+    "msg": "[{'name': 'python3-distro-info', 'version': '1.7build1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-jinja2) => {
+    "msg": "[{'name': 'python3-jinja2', 'version': '3.1.2-1ubuntu1.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-dockerpty) => {
+    "msg": "[{'name': 'python3-dockerpty', 'version': '0.4.1-5', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-httplib2) => {
+    "msg": "[{'name': 'python3-httplib2', 'version': '0.20.4-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-distupgrade) => {
+    "msg": "[{'name': 'python3-distupgrade', 'version': '1:24.04.27', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-docopt) => {
+    "msg": "[{'name': 'python3-docopt', 'version': '0.6.2-6', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-jmespath) => {
+    "msg": "[{'name': 'python3-jmespath', 'version': '1.0.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-hyperlink) => {
+    "msg": "[{'name': 'python3-hyperlink', 'version': '21.0.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-gdbm) => {
+    "msg": "[{'name': 'python3-gdbm', 'version': '3.12.3-0ubuntu1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-dotenv) => {
+    "msg": "[{'name': 'python3-dotenv', 'version': '1.0.1-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-idna) => {
+    "msg": "[{'name': 'python3-idna', 'version': '3.6-2ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-json-pointer) => {
+    "msg": "[{'name': 'python3-json-pointer', 'version': '2.0-0ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-gi) => {
+    "msg": "[{'name': 'python3-gi', 'version': '3.48.2-1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-gdbm) => {
+    "msg": "[{'name': 'python3-gdbm', 'version': '3.12.3-0ubuntu1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-incremental) => {
+    "msg": "[{'name': 'python3-incremental', 'version': '22.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-hamcrest) => {
+    "msg": "[{'name': 'python3-hamcrest', 'version': '2.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-jsonpatch) => {
+    "msg": "[{'name': 'python3-jsonpatch', 'version': '1.32-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-gi) => {
+    "msg": "[{'name': 'python3-gi', 'version': '3.48.2-1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-jinja2) => {
+    "msg": "[{'name': 'python3-jinja2', 'version': '3.1.2-1ubuntu1.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-httplib2) => {
+    "msg": "[{'name': 'python3-httplib2', 'version': '0.20.4-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-hamcrest) => {
+    "msg": "[{'name': 'python3-hamcrest', 'version': '2.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-jsonschema) => {
+    "msg": "[{'name': 'python3-jsonschema', 'version': '4.10.3-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-hyperlink) => {
+    "msg": "[{'name': 'python3-hyperlink', 'version': '21.0.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-jmespath) => {
+    "msg": "[{'name': 'python3-jmespath', 'version': '1.0.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-httplib2) => {
+    "msg": "[{'name': 'python3-httplib2', 'version': '0.20.4-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-jwt) => {
+    "msg": "[{'name': 'python3-jwt', 'version': '2.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-idna) => {
+    "msg": "[{'name': 'python3-idna', 'version': '3.6-2ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-json-pointer) => {
+    "msg": "[{'name': 'python3-json-pointer', 'version': '2.0-0ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-hyperlink) => {
+    "msg": "[{'name': 'python3-hyperlink', 'version': '21.0.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-incremental) => {
+    "msg": "[{'name': 'python3-incremental', 'version': '22.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-jsonpatch) => {
+    "msg": "[{'name': 'python3-jsonpatch', 'version': '1.32-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-launchpadlib) => {
+    "msg": "[{'name': 'python3-launchpadlib', 'version': '1.11.0-6', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-idna) => {
+    "msg": "[{'name': 'python3-idna', 'version': '3.6-2ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-jinja2) => {
+    "msg": "[{'name': 'python3-jinja2', 'version': '3.1.2-1ubuntu1.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-jsonschema) => {
+    "msg": "[{'name': 'python3-jsonschema', 'version': '4.10.3-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-lazr.restfulclient) => {
+    "msg": "[{'name': 'python3-lazr.restfulclient', 'version': '0.14.6-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-incremental) => {
+    "msg": "[{'name': 'python3-incremental', 'version': '22.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-jmespath) => {
+    "msg": "[{'name': 'python3-jmespath', 'version': '1.0.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-jwt) => {
+    "msg": "[{'name': 'python3-jwt', 'version': '2.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-jinja2) => {
+    "msg": "[{'name': 'python3-jinja2', 'version': '3.1.2-1ubuntu1.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-json-pointer) => {
+    "msg": "[{'name': 'python3-json-pointer', 'version': '2.0-0ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-lazr.uri) => {
+    "msg": "[{'name': 'python3-lazr.uri', 'version': '1.0.6-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-launchpadlib) => {
+    "msg": "[{'name': 'python3-launchpadlib', 'version': '1.11.0-6', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-jsonpatch) => {
+    "msg": "[{'name': 'python3-jsonpatch', 'version': '1.32-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-jmespath) => {
+    "msg": "[{'name': 'python3-jmespath', 'version': '1.0.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-magic) => {
+    "msg": "[{'name': 'python3-magic', 'version': '2:0.4.27-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-lazr.restfulclient) => {
+    "msg": "[{'name': 'python3-lazr.restfulclient', 'version': '0.14.6-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-jsonschema) => {
+    "msg": "[{'name': 'python3-jsonschema', 'version': '4.10.3-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-json-pointer) => {
+    "msg": "[{'name': 'python3-json-pointer', 'version': '2.0-0ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-lazr.uri) => {
+    "msg": "[{'name': 'python3-lazr.uri', 'version': '1.0.6-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-markdown-it) => {
+    "msg": "[{'name': 'python3-markdown-it', 'version': '3.0.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-jwt) => {
+    "msg": "[{'name': 'python3-jwt', 'version': '2.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-jsonpatch) => {
+    "msg": "[{'name': 'python3-jsonpatch', 'version': '1.32-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-magic) => {
+    "msg": "[{'name': 'python3-magic', 'version': '2:0.4.27-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-launchpadlib) => {
+    "msg": "[{'name': 'python3-launchpadlib', 'version': '1.11.0-6', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-markupsafe) => {
+    "msg": "[{'name': 'python3-markupsafe', 'version': '2.1.5-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-jsonschema) => {
+    "msg": "[{'name': 'python3-jsonschema', 'version': '4.10.3-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-markdown-it) => {
+    "msg": "[{'name': 'python3-markdown-it', 'version': '3.0.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-lazr.restfulclient) => {
+    "msg": "[{'name': 'python3-lazr.restfulclient', 'version': '0.14.6-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-jwt) => {
+    "msg": "[{'name': 'python3-jwt', 'version': '2.7.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-mdurl) => {
+    "msg": "[{'name': 'python3-mdurl', 'version': '0.1.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-markupsafe) => {
+    "msg": "[{'name': 'python3-markupsafe', 'version': '2.1.5-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-lazr.uri) => {
+    "msg": "[{'name': 'python3-lazr.uri', 'version': '1.0.6-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-launchpadlib) => {
+    "msg": "[{'name': 'python3-launchpadlib', 'version': '1.11.0-6', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-mdurl) => {
+    "msg": "[{'name': 'python3-mdurl', 'version': '0.1.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-minimal) => {
+    "msg": "[{'name': 'python3-minimal', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-magic) => {
+    "msg": "[{'name': 'python3-magic', 'version': '2:0.4.27-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-lazr.restfulclient) => {
+    "msg": "[{'name': 'python3-lazr.restfulclient', 'version': '0.14.6-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-minimal) => {
+    "msg": "[{'name': 'python3-minimal', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-markdown-it) => {
+    "msg": "[{'name': 'python3-markdown-it', 'version': '3.0.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-netaddr) => {
+    "msg": "[{'name': 'python3-netaddr', 'version': '0.8.0-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-lazr.uri) => {
+    "msg": "[{'name': 'python3-lazr.uri', 'version': '1.0.6-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-markupsafe) => {
+    "msg": "[{'name': 'python3-markupsafe', 'version': '2.1.5-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-netaddr) => {
+    "msg": "[{'name': 'python3-netaddr', 'version': '0.8.0-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-netifaces) => {
+    "msg": "[{'name': 'python3-netifaces', 'version': '0.11.0-2build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-magic) => {
+    "msg": "[{'name': 'python3-magic', 'version': '2:0.4.27-3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-mdurl) => {
+    "msg": "[{'name': 'python3-mdurl', 'version': '0.1.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-netifaces) => {
+    "msg": "[{'name': 'python3-netifaces', 'version': '0.11.0-2build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-markdown-it) => {
+    "msg": "[{'name': 'python3-markdown-it', 'version': '3.0.0-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-netplan) => {
+    "msg": "[{'name': 'python3-netplan', 'version': '1.1.2-8ubuntu1~24.04.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-minimal) => {
+    "msg": "[{'name': 'python3-minimal', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-netplan) => {
+    "msg": "[{'name': 'python3-netplan', 'version': '1.1.2-2~ubuntu24.04.2', 'arch': 'amd64', 'category': 'python', 'origin': '', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-markupsafe) => {
+    "msg": "[{'name': 'python3-markupsafe', 'version': '2.1.5-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-netaddr) => {
+    "msg": "[{'name': 'python3-netaddr', 'version': '0.8.0-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-newt) => {
+    "msg": "[{'name': 'python3-newt', 'version': '0.52.24-2ubuntu2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-newt) => {
+    "msg": "[{'name': 'python3-newt', 'version': '0.52.24-2ubuntu2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-mdurl) => {
+    "msg": "[{'name': 'python3-mdurl', 'version': '0.1.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-netifaces) => {
+    "msg": "[{'name': 'python3-netifaces', 'version': '0.11.0-2build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-oauthlib) => {
+    "msg": "[{'name': 'python3-oauthlib', 'version': '3.2.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-oauthlib) => {
+    "msg": "[{'name': 'python3-oauthlib', 'version': '3.2.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-netplan) => {
+    "msg": "[{'name': 'python3-netplan', 'version': '1.1.2-8ubuntu1~24.04.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-minimal) => {
+    "msg": "[{'name': 'python3-minimal', 'version': '3.12.3-0ubuntu2.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-openssl) => {
+    "msg": "[{'name': 'python3-openssl', 'version': '23.2.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-openssl) => {
+    "msg": "[{'name': 'python3-openssl', 'version': '23.2.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-newt) => {
+    "msg": "[{'name': 'python3-newt', 'version': '0.52.24-2ubuntu2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-netaddr) => {
+    "msg": "[{'name': 'python3-netaddr', 'version': '0.8.0-2ubuntu1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-packaging) => {
+    "msg": "[{'name': 'python3-packaging', 'version': '24.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-ntp) => {
+    "msg": "[{'name': 'python3-ntp', 'version': '1.2.2+dfsg1-4build2', 'arch': 'amd64', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-netifaces) => {
+    "msg": "[{'name': 'python3-netifaces', 'version': '0.11.0-2build3', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-packaging) => {
+    "msg": "[{'name': 'python3-packaging', 'version': '24.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pexpect) => {
+    "msg": "[{'name': 'python3-pexpect', 'version': '4.9-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-oauthlib) => {
+    "msg": "[{'name': 'python3-oauthlib', 'version': '3.2.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-netplan) => {
+    "msg": "[{'name': 'python3-netplan', 'version': '1.1.2-8ubuntu1~24.04.1', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pkg-resources) => {
+    "msg": "[{'name': 'python3-pkg-resources', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pexpect) => {
+    "msg": "[{'name': 'python3-pexpect', 'version': '4.9-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-openssl) => {
+    "msg": "[{'name': 'python3-openssl', 'version': '23.2.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-newt) => {
+    "msg": "[{'name': 'python3-newt', 'version': '0.52.24-2ubuntu2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-problem-report) => {
+    "msg": "[{'name': 'python3-problem-report', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pkg-resources) => {
+    "msg": "[{'name': 'python3-pkg-resources', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-packaging) => {
+    "msg": "[{'name': 'python3-packaging', 'version': '24.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-oauthlib) => {
+    "msg": "[{'name': 'python3-oauthlib', 'version': '3.2.2-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-ptyprocess) => {
+    "msg": "[{'name': 'python3-ptyprocess', 'version': '0.7.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pexpect) => {
+    "msg": "[{'name': 'python3-pexpect', 'version': '4.9-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-problem-report) => {
+    "msg": "[{'name': 'python3-problem-report', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-openssl) => {
+    "msg": "[{'name': 'python3-openssl', 'version': '23.2.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pyasn1) => {
+    "msg": "[{'name': 'python3-pyasn1', 'version': '0.4.8-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pkg-resources) => {
+    "msg": "[{'name': 'python3-pkg-resources', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-packaging) => {
+    "msg": "[{'name': 'python3-packaging', 'version': '24.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-ptyprocess) => {
+    "msg": "[{'name': 'python3-ptyprocess', 'version': '0.7.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pyasn1-modules) => {
+    "msg": "[{'name': 'python3-pyasn1-modules', 'version': '0.2.8-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-problem-report) => {
+    "msg": "[{'name': 'python3-problem-report', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pexpect) => {
+    "msg": "[{'name': 'python3-pexpect', 'version': '4.9-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pygments) => {
+    "msg": "[{'name': 'python3-pygments', 'version': '2.17.2+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pyasn1) => {
+    "msg": "[{'name': 'python3-pyasn1', 'version': '0.4.8-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-ptyprocess) => {
+    "msg": "[{'name': 'python3-ptyprocess', 'version': '0.7.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pkg-resources) => {
+    "msg": "[{'name': 'python3-pkg-resources', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pyparsing) => {
+    "msg": "[{'name': 'python3-pyparsing', 'version': '3.1.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pyasn1) => {
+    "msg": "[{'name': 'python3-pyasn1', 'version': '0.4.8-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pyasn1-modules) => {
+    "msg": "[{'name': 'python3-pyasn1-modules', 'version': '0.2.8-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-problem-report) => {
+    "msg": "[{'name': 'python3-problem-report', 'version': '2.28.1-0ubuntu3.8', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-pyrsistent) => {
+    "msg": "[{'name': 'python3-pyrsistent', 'version': '0.20.0-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pyasn1-modules) => {
+    "msg": "[{'name': 'python3-pyasn1-modules', 'version': '0.2.8-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pygments) => {
+    "msg": "[{'name': 'python3-pygments', 'version': '2.17.2+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-ptyprocess) => {
+    "msg": "[{'name': 'python3-ptyprocess', 'version': '0.7.0-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pygments) => {
+    "msg": "[{'name': 'python3-pygments', 'version': '2.17.2+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-requests) => {
+    "msg": "[{'name': 'python3-requests', 'version': '2.31.0+dfsg-1ubuntu1.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pyasn1) => {
+    "msg": "[{'name': 'python3-pyasn1', 'version': '0.4.8-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pyparsing) => {
+    "msg": "[{'name': 'python3-pyparsing', 'version': '3.1.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pyparsing) => {
+    "msg": "[{'name': 'python3-pyparsing', 'version': '3.1.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-rich) => {
+    "msg": "[{'name': 'python3-rich', 'version': '13.7.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pyasn1-modules) => {
+    "msg": "[{'name': 'python3-pyasn1-modules', 'version': '0.2.8-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-pyrsistent) => {
+    "msg": "[{'name': 'python3-pyrsistent', 'version': '0.20.0-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-s3transfer) => {
+    "msg": "[{'name': 'python3-s3transfer', 'version': '0.10.1-1ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-pyrsistent) => {
+    "msg": "[{'name': 'python3-pyrsistent', 'version': '0.20.0-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pygments) => {
+    "msg": "[{'name': 'python3-pygments', 'version': '2.17.2+dfsg-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-requests) => {
+    "msg": "[{'name': 'python3-requests', 'version': '2.31.0+dfsg-1ubuntu1.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-serial) => {
+    "msg": "[{'name': 'python3-serial', 'version': '3.5-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-requests) => {
+    "msg": "[{'name': 'python3-requests', 'version': '2.31.0+dfsg-1ubuntu1.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-rich) => {
+    "msg": "[{'name': 'python3-rich', 'version': '13.7.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pyparsing) => {
+    "msg": "[{'name': 'python3-pyparsing', 'version': '3.1.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-service-identity) => {
+    "msg": "[{'name': 'python3-service-identity', 'version': '24.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-rich) => {
+    "msg": "[{'name': 'python3-rich', 'version': '13.7.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-s3transfer) => {
+    "msg": "[{'name': 'python3-s3transfer', 'version': '0.10.1-1ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-pyrsistent) => {
+    "msg": "[{'name': 'python3-pyrsistent', 'version': '0.20.0-1build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-setuptools) => {
+    "msg": "[{'name': 'python3-setuptools', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-serial) => {
+    "msg": "[{'name': 'python3-serial', 'version': '3.5-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-requests) => {
+    "msg": "[{'name': 'python3-requests', 'version': '2.31.0+dfsg-1ubuntu1.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-s3transfer) => {
+    "msg": "[{'name': 'python3-s3transfer', 'version': '0.10.1-1ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-six) => {
+    "msg": "[{'name': 'python3-six', 'version': '1.16.0-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-service-identity) => {
+    "msg": "[{'name': 'python3-service-identity', 'version': '24.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-rich) => {
+    "msg": "[{'name': 'python3-rich', 'version': '13.7.1-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-serial) => {
+    "msg": "[{'name': 'python3-serial', 'version': '3.5-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-software-properties) => {
+    "msg": "[{'name': 'python3-software-properties', 'version': '0.99.49.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-setuptools) => {
+    "msg": "[{'name': 'python3-setuptools', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-s3transfer) => {
+    "msg": "[{'name': 'python3-s3transfer', 'version': '0.10.1-1ubuntu2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-systemd) => {
+    "msg": "[{'name': 'python3-systemd', 'version': '235-1build4', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-service-identity) => {
+    "msg": "[{'name': 'python3-service-identity', 'version': '24.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-six) => {
+    "msg": "[{'name': 'python3-six', 'version': '1.16.0-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-serial) => {
+    "msg": "[{'name': 'python3-serial', 'version': '3.5-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-texttable) => {
+    "msg": "[{'name': 'python3-texttable', 'version': '1.6.7-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-software-properties) => {
+    "msg": "[{'name': 'python3-software-properties', 'version': '0.99.49.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-setuptools) => {
+    "msg": "[{'name': 'python3-setuptools', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-service-identity) => {
+    "msg": "[{'name': 'python3-service-identity', 'version': '24.1.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-twisted) => {
+    "msg": "[{'name': 'python3-twisted', 'version': '24.3.0-1ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-systemd) => {
+    "msg": "[{'name': 'python3-systemd', 'version': '235-1build4', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-setuptools) => {
+    "msg": "[{'name': 'python3-setuptools', 'version': '68.1.2-2ubuntu1.2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-six) => {
+    "msg": "[{'name': 'python3-six', 'version': '1.16.0-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-twisted) => {
+    "msg": "[{'name': 'python3-twisted', 'version': '24.3.0-1ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-typing-extensions) => {
+    "msg": "[{'name': 'python3-typing-extensions', 'version': '4.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-six) => {
+    "msg": "[{'name': 'python3-six', 'version': '1.16.0-4', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-software-properties) => {
+    "msg": "[{'name': 'python3-software-properties', 'version': '0.99.49.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-typing-extensions) => {
+    "msg": "[{'name': 'python3-typing-extensions', 'version': '4.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-tz) => {
+    "msg": "[{'name': 'python3-tz', 'version': '2024.1-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-software-properties) => {
+    "msg": "[{'name': 'python3-software-properties', 'version': '0.99.49.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-tz) => {
+    "msg": "[{'name': 'python3-tz', 'version': '2024.1-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-update-manager) => {
+    "msg": "[{'name': 'python3-update-manager', 'version': '1:24.04.12', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-systemd) => {
+    "msg": "[{'name': 'python3-systemd', 'version': '235-1build4', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-systemd) => {
+    "msg": "[{'name': 'python3-systemd', 'version': '235-1build4', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-update-manager) => {
+    "msg": "[{'name': 'python3-update-manager', 'version': '1:24.04.12', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-urllib3) => {
+    "msg": "[{'name': 'python3-urllib3', 'version': '2.0.7-1ubuntu0.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-texttable) => {
+    "msg": "[{'name': 'python3-texttable', 'version': '1.6.7-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-texttable) => {
+    "msg": "[{'name': 'python3-texttable', 'version': '1.6.7-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-urllib3) => {
+    "msg": "[{'name': 'python3-urllib3', 'version': '2.0.7-1ubuntu0.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-wadllib) => {
+    "msg": "[{'name': 'python3-wadllib', 'version': '1.3.6-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-twisted) => {
+    "msg": "[{'name': 'python3-twisted', 'version': '24.3.0-1ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-wadllib) => {
+    "msg": "[{'name': 'python3-wadllib', 'version': '1.3.6-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-twisted) => {
+    "msg": "[{'name': 'python3-twisted', 'version': '24.3.0-1ubuntu0.1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-websocket) => {
+    "msg": "[{'name': 'python3-websocket', 'version': '1.7.0-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-typing-extensions) => {
+    "msg": "[{'name': 'python3-typing-extensions', 'version': '4.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-yaml) => {
+    "msg": "[{'name': 'python3-yaml', 'version': '6.0.1-2build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-typing-extensions) => {
+    "msg": "[{'name': 'python3-typing-extensions', 'version': '4.10.0-1', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-yaml) => {
+    "msg": "[{'name': 'python3-yaml', 'version': '6.0.1-2build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3-zope.interface) => {
+    "msg": "[{'name': 'python3-zope.interface', 'version': '6.1-1build1', 'arch': 'amd64', 'category': 'zope', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-tz) => {
+    "msg": "[{'name': 'python3-tz', 'version': '2024.1-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3-zope.interface) => {
+    "msg": "[{'name': 'python3-zope.interface', 'version': '6.1-1build1', 'arch': 'amd64', 'category': 'zope', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-tz) => {
+    "msg": "[{'name': 'python3-tz', 'version': '2024.1-2', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3.12) => {
+    "msg": "[{'name': 'python3.12', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-update-manager) => {
+    "msg": "[{'name': 'python3-update-manager', 'version': '1:24.04.12', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3.12) => {
+    "msg": "[{'name': 'python3.12', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3.12-minimal) => {
+    "msg": "[{'name': 'python3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-update-manager) => {
+    "msg": "[{'name': 'python3-update-manager', 'version': '1:24.04.12', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-urllib3) => {
+    "msg": "[{'name': 'python3-urllib3', 'version': '2.0.7-1ubuntu0.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent02.tsand.org] => (item=python3.12-minimal) => {
+    "msg": "[{'name': 'python3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3.8) => {
+    "msg": "[{'name': 'python3.8', 'version': '3.8.20-1+noble1', 'arch': 'amd64', 'category': 'python', 'origin': 'LP-PPA-deadsnakes', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-wadllib) => {
+    "msg": "[{'name': 'python3-wadllib', 'version': '1.3.6-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-urllib3) => {
+    "msg": "[{'name': 'python3-urllib3', 'version': '2.0.7-1ubuntu0.3', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [tom1.tsand.org] => (item=python3.8-minimal) => {
+    "msg": "[{'name': 'python3.8-minimal', 'version': '3.8.20-1+noble1', 'arch': 'amd64', 'category': 'python', 'origin': 'LP-PPA-deadsnakes', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-websocket) => {
+    "msg": "[{'name': 'python3-websocket', 'version': '1.7.0-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-wadllib) => {
+    "msg": "[{'name': 'python3-wadllib', 'version': '1.3.6-5', 'arch': 'all', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-yaml) => {
+    "msg": "[{'name': 'python3-yaml', 'version': '6.0.1-2build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-websocket) => {
+    "msg": "[{'name': 'python3-websocket', 'version': '1.7.0-1', 'arch': 'all', 'category': 'universe/python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3-zope.interface) => {
+    "msg": "[{'name': 'python3-zope.interface', 'version': '6.1-1build1', 'arch': 'amd64', 'category': 'zope', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-yaml) => {
+    "msg": "[{'name': 'python3-yaml', 'version': '6.0.1-2build2', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3.12) => {
+    "msg": "[{'name': 'python3.12', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3-zope.interface) => {
+    "msg": "[{'name': 'python3-zope.interface', 'version': '6.1-1build1', 'arch': 'amd64', 'category': 'zope', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jendock.tsand.org] => (item=python3.12-minimal) => {
+    "msg": "[{'name': 'python3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3.12) => {
+    "msg": "[{'name': 'python3.12', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+ok: [jagent01.tsand.org] => (item=python3.12-minimal) => {
+    "msg": "[{'name': 'python3.12-minimal', 'version': '3.12.3-1ubuntu0.9', 'arch': 'amd64', 'category': 'python', 'origin': 'Ubuntu', 'source': 'apt'}] | to_yaml"
+}
+
+TASK [Show the default ansible_python_interpreter version] *********************
+ok: [jagent01.tsand.org] => {
+    "ansible_python_version": "3.12.3"
+}
+ok: [jagent02.tsand.org] => {
+    "ansible_python_version": "3.12.3"
+}
+ok: [jendock.tsand.org] => {
+    "ansible_python_version": "3.12.3"
+}
+ok: [tom1.tsand.org] => {
+    "ansible_python_version": "3.12.3"
+}
+
+PLAY RECAP *********************************************************************
+jagent01.tsand.org         : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+jagent02.tsand.org         : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+jendock.tsand.org          : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+tom1.tsand.org             : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

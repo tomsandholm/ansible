@@ -1,0 +1,22 @@
+---
+- name: requirements
+  hosts: localhost
+  roles:
+    - ansible-output-prettify
+  
+- name: List specific users (e.g., those with /bin/bash shell)
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Retrieve user database entries
+      ansible.builtin.getent:
+        database: passwd
+
+    - name: Filter for users with /bin/bash shell
+      ansible.builtin.set_fact:
+        users_with_bash: "{{ getent_passwd | dict2items | selectattr('value', 'contains', '/bin/bash') | map(attribute='key') }}"
+
+    - name: Display the filtered user list
+      ansible.builtin.debug:
+        msg: "{{ users_with_bash | ansible.builtin.to_nice_yaml(indent=2) }}"
+

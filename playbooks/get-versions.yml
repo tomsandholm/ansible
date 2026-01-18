@@ -1,0 +1,17 @@
+---
+- name: Gather all installed package versions
+  hosts: all
+  gather_facts: false # Optional: Set to false if you only need package facts
+
+  tasks:
+    - name: Get the package facts
+      ansible.builtin.package_facts:
+        manager: auto # Automatically select the appropriate package manager (apt, yum, etc.)
+
+    - name: Print all installed packages and their versions
+      ansible.builtin.debug:
+        msg: "Package {{ item.key }} is installed with versions: {{ item.value | map(attribute='version') | list }}"
+      loop: "{{ ansible_facts.packages | dict2items }}"
+      loop_control:
+        label: "{{ item.key }}"
+

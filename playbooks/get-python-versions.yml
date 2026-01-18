@@ -1,0 +1,20 @@
+---
+- name: Check specific Python 3 interpreter versions
+  hosts: all
+  tasks:
+    - name: Run python3 --version for common paths
+      ansible.builtin.shell:
+        cmd: |
+          for path in /usr/bin/python2 /usr/local/bin/python2 /usr/bin/python3 /usr/local/bin/python3 /usr/bin/python3.[0-9]* /usr/local/bin/python3.[0-9]* /usr/bin/python2.[0-9] /usr/local/bin/python2.[0-9]; do
+            if [ -e "$path" ]; then
+              echo "$path is $("$path" --version 2>&1)";
+            fi
+          done
+      register: python_versions_output
+      args:
+        executable: /bin/bash
+
+    - name: Display found Python versions
+      ansible.builtin.debug:
+        var: python_versions_output.stdout_lines | to_yaml
+
