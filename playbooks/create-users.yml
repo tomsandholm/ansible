@@ -1,0 +1,33 @@
+---
+- name: loop over users
+  hosts: all
+  become: true
+  tasks:
+    - name: create user
+      user:
+        name: "{{ item.login }}"
+        uid: "{{ item.uid }}"
+        home: "{{ item.home }}"
+        shell: "{{ item.shell }}"
+        groups: "{{ item.groups }}"
+        state: present
+      loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
+      when: inventory_hostname in item.hosts.split(',')
+    - name: add ssh key
+      authorized_key:
+        user: "{{ item.login }}"
+        key: "{{ item.ssh_key }}"
+        state: present
+      loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
+      when: inventory_hostname in item.hosts.split(',')
+    - name: sudo access
+      community.general.sudoers:
+        name: "{{ item.login }}"
+        state: present
+        user: "{{ item.login }}"
+        commands: ALL
+        nopassword: true
+      loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
+      when: "(inventory_hostname in item.hosts.split(',')) and item.sudo"
+      
+
