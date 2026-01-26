@@ -6,18 +6,72 @@
   home: /home/stu01
   shell: /bin/bash
   sudo: yes
-  hosts: tom1.tsand.org,tom2.tsand.org
+  hosts_present: tom1.tsand.org,tom2.tsand.org
   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
   groups: sudo,wheel
 - login: stu02
   uid: 2001
   gid: 2001
   last: dent
-  first: stu01
+  first: stu02
   home: /home/stu02
   shell: /bin/bash
   sudo: no
-  hosts: tom1.tsand.org,tom2.tsand.org
+  hosts_present: tom1.tsand.org,tom2.tsand.org
   ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
   groups: sudo,wheel
-
+- login: stu03
+  uid: 2002
+  gid: 2002
+  last: dent
+  first: stu03
+  home: /home/stu03
+  shell: /bin/bash
+  sudo: no
+  hosts_present: tom3.tsand.org
+  ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
+  groups: sudo,wheel
+- login: stu04
+  uid: 2003
+  gid: 2003
+  last: dent
+  first: stu04
+  home: /home/stu04
+  shell: /bin/bash
+  sudo: yes
+  hosts_present: tom2.tsand.org
+  ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
+  groups: sudo,wheel
+- login: stu05
+  uid: 2004
+  gid: 2004
+  last: dent
+  first: stu05
+  home: /home/stu05
+  shell: /bin/bash
+  sudo: yes
+  hosts_present: tom2.tsand.org,tom1.tsand.org
+  ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
+  groups: sudo,wheel
+- login: stu06
+  uid: 2005
+  gid: 2005
+  last: dent
+  first: stu06
+  home: /home/stu06
+  shell: /bin/bash
+  sudo: yes
+  hosts_present: tom3.tsand.org,tom1.tsand.org
+  ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
+  groups: sudo,wheel
+- login: stu07
+  uid: 2006
+  gid: 2006
+  last: dent
+  first: stu07
+  home: /home/stu07
+  shell: /bin/bash
+  sudo: no
+  hosts_present: tom1.tsand.org
+  ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqXZ+SLI5aH0aYMfoIygApu28cmVH06GU91Ko6hpfBblNntam4Mi6tWolCeZLeaDmZ+/LdXWykbmOyoKq42S2SStjimkeUTqQWHt6wojPfIZwovk7zN5Vn7V8w54e0/v97fX/j9gCvDToHzx6ReJyR5uRoMJ9Cs82DlJwOE6sVpbOPnpYwlCCB7zZmi82RiXZ7pVO6C3ezcJvl3565gxqHbmcqK5uDbXx2mTFC08TUxyxWOfEeAJbhM5RD7OtmbYTL59HlzuhPhgG8jCSUq5nJvOKqhqNvDF0MzVbV2hxmiJsfvQ84fxvCTh4CWOGxUMzEv57uLdTgQeXm1Gl01FNUIPvwPaRVYUzPXyFzPrXkN19f7fTJ6pCJpw/4O35RGIL57fK4jYV0y0xPrDtRESiwColvqubIi27NAqGJwAwJzNNe696COoj8ORsEMxn5uwB68xMALK6IIJZcTk4FO13JQqD/hlIb8+JkkmqToTFmymbjPiTTiIKA6soWOxeteM= sandholm@beast4"
+  groups: sudo,wheel
