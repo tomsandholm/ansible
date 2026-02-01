@@ -1,0 +1,28 @@
+---
+- name: Manage Remote system load monitors
+  hosts: all
+  become: true
+  vars:
+    top: "/tmp/load/{{ inventory_hostname }}
+    tmp: "load.tmp"
+    rdy: "load.rdy"
+
+  tasks:
+    - name: Install get-load script
+      copy:
+        src: /home/ansible/ansible/master-files/get-load
+        dest: /usr/local/bin/get-load
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Cron entry to create load file
+      cron:
+        name: "Get system load every minute"
+        user: root
+        minute: "*"
+        hour: "*"
+        month: "*"
+        weekday: "*"
+        job: /usr/local/bin/get-load > {{ top }}/{{ tmp }}
+
