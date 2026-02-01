@@ -1,7 +1,7 @@
 #! /bin/bash
 # vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4:
 
-TMP=/tmp/load
+TMP=/tmp/load/$(hostname)
 mkdir -p $TMP
 tmpout="load.tmp"
 tmprdy="load.rdy"
