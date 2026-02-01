@@ -12,14 +12,14 @@
         groups: "{{ item.groups }}"
         state: present
       loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
-      when: inventory_hostname in item.hosts.split(',')
+      when: inventory_hostname in item.hosts_present.split(',')
     - name: add ssh key
       authorized_key:
         user: "{{ item.login }}"
         key: "{{ item.ssh_key }}"
         state: present
       loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
-      when: inventory_hostname in item.hosts.split(',')
+      when: inventory_hostname in item.hosts_present.split(',')
     - name: sudo access
       community.general.sudoers:
         name: "{{ item.login }}"
@@ -28,6 +28,6 @@
         commands: ALL
         nopassword: true
       loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
-      when: "(inventory_hostname in item.hosts.split(',')) and item.sudo"
+      when: "(inventory_hostname in item.hosts_present.split(',')) and item.sudo"
       
 

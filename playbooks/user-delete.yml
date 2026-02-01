@@ -1,0 +1,33 @@
+---
+- name: loop over users
+  hosts: all
+  become: true
+  tasks:
+    - name: delete user
+      user:
+        name: "{{ item.login }}"
+        uid: "{{ item.uid }}"
+        home: "{{ item.home }}"
+        shell: "{{ item.shell }}"
+        groups: "{{ item.groups }}"
+        force: true
+        state: absent
+        remove: true
+      loop: "{{ lookup('file','users-delete-list.yml') | from_yaml }}"
+      when: inventory_hostname in item.hosts.split(',')
+    - name: remove sudo access
+      community.general.sudoers:
+        name: "{{ item.login }}"
+        state: absent
+        user: "{{ item.login }}"
+        commands: ALL
+        nopassword: true
+      loop: "{{ lookup('file','users-delete-list.yml') | from_yaml }}"
+      when: (inventory_hostname in item.hosts.split(',') and item.sudo == "yes")
+    - name: remove sudoers files
+      file:
+        path: /etc/sudoers.d/{{ item.login }}
+        state: absent
+      loop: "{{ lookup('file','users-delete-list.yml') | from_yaml }}"
+      when: inventory_hostname in item.hosts.split(',')
+

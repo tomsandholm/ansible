@@ -1,9 +1,9 @@
 ---
-- name: requirements
-  hosts: localhost
-  roles:
-    - ansible-output-prettify
-  
+#- name: requirements
+#  hosts: localhost
+#  roles:
+#    - ansible-output-prettify
+# 
 - name: List specific users (e.g., those with /bin/bash shell)
   hosts: all
   gather_facts: false

@@ -1,0 +1,58 @@
+---
+- name: Install and Configure SNMPd on Ubuntu 24.04
+  hosts: all
+  become: true
+  vars:
+    snmp_community: "public"
+    snmp_allowed_network: "10.0.0.0/24" # Change to specific IP/Subnet for security (e.g., 10.0.0.0/24)
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install snmpd and libsnmp-dev snmp-mibs-downloader
+      apt:
+        name:
+          - snmpd
+          - snmp
+          - libsnmp-dev
+          - snmp-mibs-downloader
+        state: present
+
+    - name: Configure snmpd.conf (listen on all interfaces)
+      lineinfile:
+        path: /etc/snmp/snmpd.conf
+        regexp: '^agentaddress'
+        line: 'agentAddress udp:161'
+      notify: Restart snmpd
+
+    - name: Configure snmpd.conf (set community string)
+      lineinfile:
+        path: /etc/snmp/snmpd.conf
+        line: "rocommunity {{ snmp_community }} {{ snmp_allowed_network }}"
+        state: present
+      notify: Restart snmpd
+
+    - name: Run the MIBs downloader
+      shell: "download-mibs"
+
+    - name: Enable MID download
+      lineinfile:
+        path: /etc/snmp/snmp.conf
+        regexp: "mibs :"
+        line: "# mibs :"
+      
+    - name: Ensure snmpd is running and enabled
+      service:
+        name: snmpd
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: Restart snmpd
+      service:
+        name: snmpd
+        state: restarted
+

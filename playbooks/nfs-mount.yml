@@ -1,0 +1,27 @@
+---
+- name: Make nfs mount of /tmp/load
+  hosts: all
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Install NFS
+      apt:
+        name: nfs-common
+        state: present
+
+    - name: Create Mount point
+      file:
+        path: /tmp/load
+        state: directory
+        mode: '0755'
+        owner: ansible
+        group: ansible
+
+    - name: Mount NFS share and configure fstab
+      mount:
+        src: 10.0.0.110:/tmp/load
+        path: /tmp/load
+        fstype: nfs
+        opts: fsc,noauto,nofail,x-systemd.automount,x-systemd.mount-timeout=10,x-systemd.idle-timeout=5min 0 0
+        state: mounted
+
