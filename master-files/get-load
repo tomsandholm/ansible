@@ -12,7 +12,7 @@ then
 	exit 0
 fi
 
-for x in tom1.tsand.org tom2.tsand.org tom3.tsand.org
+for x in $(hostname)
 do
 	# get 1-min, 5-min and 15-min loads, and format output to a single line
 	all=$(snmpget -v 2c -c public $x \
