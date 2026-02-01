@@ -1,0 +1,27 @@
+#! /bin/bash
+# vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4:
+
+TMP=/tmp/load
+mkdir -p $TMP
+tmpout="load.tmp"
+tmprdy="load.rdy"
+
+if [ -e ${TMP}/${tmprdy} ]
+then
+	logger "error: $tmprdy found"
+	exit 0
+fi
+
+for x in tom1.tsand.org tom2.tsand.org tom3.tsand.org
+do
+	# get 1-min, 5-min and 15-min loads, and format output to a single line
+	all=$(snmpget -v 2c -c public $x \
+        .1.3.6.1.4.1.2021.10.1.3.1 \
+		.1.3.6.1.4.1.2021.10.1.3.2 \
+		.1.3.6.1.4.1.2021.10.1.3.3 | \
+		awk '{print $NF};' | \
+		paste -d ' ' - - -)
+	# display timestamp with load data
+	echo "$(date '+%Y-%m-%d %H:%M:%S') $x $all" > ${TMP}/${tmpout}
+	mv ${TMP}/${tmpout} ${TMP}/${tmprdy}
+done
