@@ -22,6 +22,7 @@ do
 		awk '{print $NF};' | \
 		paste -d ' ' - - -)
 	# display timestamp with load data
+	mkdir -p ${TMP}
 	echo "$(date '+%Y-%m-%d %H:%M:%S') $x $all" > ${TMP}/${tmpout}
 	mv ${TMP}/${tmpout} ${TMP}/${tmprdy}
 done
