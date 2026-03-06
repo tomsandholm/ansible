@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  vars:
+    mysql_root_password: root
+    mysql_databases:
+      - name: librebooking
+    mysql_users:
+      - name: root
+        host: "%"
+        password: root
+        priv: "*.*:ALL"
+      - name: lb_user
+        host: "%"
+        password: lb_user
+        priv: "*.*:ALL"
+  roles:
+    - { role: geerlingguy.mysql }
+

@@ -8,11 +8,6 @@
     rdy: "load.rdy"
 
   tasks:
-    - name: Ensure MTA is installed
-      apt:
-        name: postfix
-        state: present
-
     - name: Install get-load script
       copy:
         src: /home/ansible/ansible/master-files/get-load
@@ -30,5 +25,5 @@
         month: "*"
         weekday: "*"
         job: /usr/local/bin/get-load > {{ top }}/{{ tmp }}
-        state: present
+        state: absent
 

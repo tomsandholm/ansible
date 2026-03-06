@@ -1,0 +1,17 @@
+---
+- name: Check active SSH sessions on hosts
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Run command to list all current sessions
+      ansible.builtin.shell: |
+        netstat -tp | grep 'ESTABLISHED.*sshd'
+      register: ssh_sessions_output
+      # Use `changed_when: true` to prevent Ansible from marking this as a 'changed' task
+      changed_when: false
+      
+    - name: Display the output
+      ansible.builtin.debug:
+        var: ssh_sessions_output.stdout_lines
+
