@@ -6,13 +6,9 @@
     mysql_databases:
       - name: librebooking
     mysql_users:
-      - name: root
-        host: "%"
-        password: root
-        priv: "*.*:ALL"
       - name: lb_user
-        host: "%"
-        password: lb_user
+        host: "localhost"
+        password: password
         priv: "*.*:ALL"
   roles:
     - { role: geerlingguy.mysql }

@@ -8,9 +8,17 @@
         documentroot: /var/www/html
         extra_parameters: |
               ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
-
-
   roles:
     - geerlingguy.apache
     - geerlingguy.php
     - geerlingguy.apache-php-fpm
+
+  tasks:
+    - name: create index.php
+      shell: |
+        mv /var/www/html/index.html /var/www/
+        echo "<?php" >> /var/www/html/index.php
+        echo "phpinfo();" >> /var/www/html/index.php
+        echo "?>" >> /var/www/html/index.php
+     
+      

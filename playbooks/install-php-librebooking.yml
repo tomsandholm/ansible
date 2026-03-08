@@ -1,0 +1,42 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: install librebooking php modules
+      apt:
+        pkg:
+          - php-ctype
+          - php-curl
+          - php-fileinfo
+          - php-json
+          - php-mbstring
+          - php-mysqli
+          - php-pdo
+          - php-ldap
+          - php-tokenizer
+          - php-xml
+          - php-gd
+          - php-bcmath
+          - composer
+    - name: setup apache2 modules
+      shell: |
+        a2enmod headers
+        a2enmod rewrite
+    - name: clone code
+      shell: |
+        cd /var/www/html
+        git clone https://github.com/LibreBooking/librebooking.git
+        cd /var/www/html/librebooking
+        mkdir -p ./tpl_c
+        chmod 0777 ./tpl_c
+        cd /var/www/html
+        chown -R www-data:www-data librebooking
+    - name: run composer install
+      shell: |
+        cd /var/www/html/librebooking
+        composer -n install
+
+
+        
+    
