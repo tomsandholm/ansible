@@ -7,9 +7,8 @@
       - name: librebooking
     mysql_users:
       - name: lb_user
-        host: "localhost"
         password: password
-        priv: "*.*:ALL"
+        host: 127.0.0.1
   roles:
     - { role: geerlingguy.mysql }
 

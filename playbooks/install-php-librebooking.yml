@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: true
+  gather_facts: true
 
   tasks:
     - name: install librebooking php modules
@@ -32,11 +33,29 @@
         chmod 0777 ./tpl_c
         cd /var/www/html
         chown -R www-data:www-data librebooking
+    - name: set www-data account for shell access
+      user:
+        name: www-data
+        shell: /bin/bash
     - name: run composer install
       shell: |
         cd /var/www/html/librebooking
         composer -n install
+    - name: setup config file
+      shell: |
+        cd /var/www/html/librebooking/config
+        cp config.dist.php config.php
+        chown www-data:www-data config.php
+    - name: edit the install.password in config.php
+      lineinfile:
+        path: /var/www/html/librebooking/config/config.php
+        regexp: "^(\\s*'install.password') => '',"
+        line: "\\1 => 'password',"
+        backrefs: true
+    - name: edit the script.url in config.php
+      lineinfile:
+        path: /var/www/html/librebooking/config/config.php
+        regexp: "^(\\s*'script.url') => '',"
+        line: "\\1 => 'http://{{ ansible_fqdn }}/librebooking/Web',"
+        backrefs: true
 
-
-        
-    
