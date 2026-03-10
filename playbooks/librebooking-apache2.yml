@@ -4,7 +4,7 @@
   vars:
     php_enable_php_fpm: true
     apache_vhosts:
-      - servername: 'tom1.tsand.org'
+      - servername: '{{ ansible_fqdn }}'
         documentroot: /var/www/html
         extra_parameters: |
               ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
@@ -20,5 +20,10 @@
         echo "<?php" >> /var/www/html/index.php
         echo "phpinfo();" >> /var/www/html/index.php
         echo "?>" >> /var/www/html/index.php
+
+    - name: install libapache2-mod-php
+      apt:
+        name:
+          - libapache2-mod-php
      
       
