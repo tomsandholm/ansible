@@ -58,4 +58,16 @@
         regexp: "^(\\s*'script.url') => '',"
         line: "\\1 => 'http://{{ ansible_fqdn }}/librebooking/Web',"
         backrefs: true
+    - name: edit the company.name in config.php
+      lineinfile:
+        path: /var/www/html/librebooking/config/config.php
+        regexp: "^(\\s*'company.name') => '',"
+        line: "\\1 => 'Nokia',"
+        backrefs: true
+    - name: edit the company.url in config.php
+      lineinfile:
+        path: /var/www/html/librebooking/config/config.php
+        regexp: "^(\\s*'company.url') => '',"
+        line: "\\1 => 'http://www.nokia.com',"
+        backrefs: true
 
