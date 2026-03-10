@@ -1,0 +1,30 @@
+---
+- name: install roles for librebooking
+  hosts: localhost
+  become: false
+  tasks:
+    - name: install roles - mysql
+      community.general.ansible_galaxy_install:
+        type: role
+        name: geerlingguy.mysql
+        dest: /home/ansible/.ansible/roles
+
+    - name: install roles - apache2
+      community.general.ansible_galaxy_install:
+        type: role
+        name: geerlingguy.apache
+        dest: /home/ansible/.ansible/roles
+
+    - name: install roles - apache2-php-fpm
+      community.general.ansible_galaxy_install:
+        type: role
+        name: geerlingguy.apache-php-fpm
+        dest: /home/ansible/.ansible/roles
+
+    - name: install roles - php
+      community.general.ansible_galaxy_install:
+        type: role
+        name: geerlingguy.php
+        dest: /home/ansible/.ansible/roles
+
+
