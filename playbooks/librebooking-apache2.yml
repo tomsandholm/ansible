@@ -2,6 +2,7 @@
 - hosts: all
   become: true
   vars:
+    php_version: '8.3'
     php_enable_php_fpm: true
     apache_vhosts:
       - servername: '{{ ansible_fqdn }}'
@@ -10,6 +11,7 @@
               ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
   roles:
     - geerlingguy.apache
+    - geerlingguy.php-versions
     - geerlingguy.php
     - geerlingguy.apache-php-fpm
 
