@@ -1,3 +1,21 @@
+# Run this playbook last
+# This playbook ensures all the php modules are installed
+# and ensures apache modules.
+# This playbook clones the librebooking/develop branch from github
+# clone to /var/www/html/librebooking
+# ownership set to www-data:www-data
+# created tpl_c for cache with public write
+# This script will configure www-data user for shell,
+# to allow for "su - www-data" to run validation tools,
+# like "composer preflight ---"
+# like "composer install"
+# This script will install company branding
+# NOTICE the line
+#    - name: edit the install.password in config.php
+# You will need to set the "installation password" if you do not
+# want to use the default.  You will be prompted for it during
+# install.
+
 ---
 - hosts: all
   become: true

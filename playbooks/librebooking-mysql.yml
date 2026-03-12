@@ -1,3 +1,13 @@
+# Run this playbook second
+# This playbook installs latest mysql release
+# The "mysql_root_password" is the password used for "root" access,  
+#   i.e. mysql -u root -p
+# Do not change the database name.
+# Do not change the mysql_users lb_user
+# You may change the lb_user password, but you must document it
+#  as it will be needed in the config/config.php file after install.
+# Do not change the host ip-address
+# It is expected you will run this playbook with --limit
 ---
 - hosts: all
   become: true

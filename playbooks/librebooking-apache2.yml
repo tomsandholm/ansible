@@ -1,3 +1,10 @@
+# Run this playbook third
+# This playbook installs the latest apache, php and fpm
+# The versions are set by the distribution-release
+# The script will move the index.html in the DOCROOT
+# and replace it with index.php, you may browse
+# to that url to validate proper php operation.
+# and this playbook installs the apache php module
 ---
 - hosts: all
   become: true

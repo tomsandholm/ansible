@@ -1,3 +1,6 @@
+# Run this playbook first
+# This playbook installs the ansible-galaxy roles called by the other playbooks
+# 
 ---
 - name: install roles for librebooking
   hosts: localhost
