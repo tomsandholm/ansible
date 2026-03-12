@@ -17,18 +17,18 @@ apache server and the php version and modules installed
 
 Enter the following URL to start the install process:
 
-http://\<ANSIBLE-CLIENT\>/librebooking/Web/install
+    http://\<ANSIBLE-CLIENT\>/librebooking/Web/install
 
 When prompted for the "Install password", enter the default "password" or use what you changed.
 
-when prompted for the database connection, use
-user: root
-password: root
+when prompted for the database connection, use  
+user: root  
+password: root  
 
-Select ALL the items for installation,
-create database
-create user
-import sample data
+Select ALL the items for installation,  
+create database  
+create user  
+import sample data  
 
 When completed, you may login using the sample data account, admin/password.
 
