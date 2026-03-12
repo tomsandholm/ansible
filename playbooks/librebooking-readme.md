@@ -10,14 +10,14 @@ Run the following playbooks as the ansible user on the ansible server:
 
 Login to the target host you just installed to:
 
-http://\<ANSIBLE-CLIENT\>/
+    http://<ANSIBLE-CLIENT>/
 
 You should see a phpinfo screen with all the details of the
 apache server and the php version and modules installed
 
 Enter the following URL to start the install process:
 
-    http://\<ANSIBLE-CLIENT\>/librebooking/Web/install
+    http://<ANSIBLE-CLIENT>/librebooking/Web/install
 
 When prompted for the "Install password", enter the default "password" or use what you changed.
 
