@@ -4,9 +4,9 @@ You must have the desired target system already configured under Ansible.
 Run the following playbooks as the ansible user on the ansible server:
 
 1.  ansible-playbook librebooking-setup.yml
-2.  ansible-playbook --limit <ANSIBLE-CLIENT> librebooking-mysql.yml
-3.  ansible-playbook --limit <ANSIBLE-CLIENT> librebooking-apache2.yml
-4.  ansible-playbook --limit <ANSIBLE-CLIENT> librebooking-php.yml
+2.  ansible-playbook --limit '<ANSIBLE-CLIENT>' librebooking-mysql.yml
+3.  ansible-playbook --limit '<ANSIBLE-CLIENT>' librebooking-apache2.yml
+4.  ansible-playbook --limit '<ANSIBLE-CLIENT>' librebooking-php.yml
 
 Login to the target host you just installed to:
 
