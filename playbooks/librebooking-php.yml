@@ -25,18 +25,7 @@
     - name: install librebooking php modules
       apt:
         pkg:
-          - php-ctype
-          - php-curl
-          - php-fileinfo
-          - php-json
-          - php-mbstring
-          - php-mysqli
-          - php-pdo
-          - php-ldap
-          - php-tokenizer
-          - php-xml
-          - php-gd
-          - php-bcmath
+          - php-mysql
           - composer
     - name: setup apache2 modules
       shell: |
