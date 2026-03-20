@@ -1,6 +1,6 @@
 # Run this playbook second
 # This playbook installs latest mysql release
-# The "mysql_root_password" is the password used for "root" access,  
+# The "mysql_root_password" is the password used for "root" access,
 #   i.e. mysql -u root -p
 # Do not change the database name.
 # Do not change the mysql_users lb_user
@@ -9,7 +9,8 @@
 # Do not change the host ip-address
 # It is expected you will run this playbook with --limit
 ---
-- hosts: all
+- name: Install Mysql
+  hosts: all
   become: true
   vars:
     mysql_root_password: root
@@ -21,4 +22,3 @@
         host: 127.0.0.1
   roles:
     - { role: geerlingguy.mysql }
-

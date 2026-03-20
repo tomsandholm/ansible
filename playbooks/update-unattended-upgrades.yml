@@ -1,0 +1,36 @@
+# ansible playbook to blacklist python3.7 from upgrade
+# you may invoke this playbook with the following:
+# cd /home/ansible/ansible/playbooks
+# "ansible-playbook ./update-unattended-upgrade.yml"
+# You may need to limit the host or group this playbook runs on
+# "ansible-playbook --limit ot-quantum-lx24 update-unattended-upgrade.yml"
+#
+---
+- name: Blacklist python3.7 from  unattended-upgrades
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure unattended-upgrades is installed
+      apt:
+        name: unattended-upgrades
+        state: present
+
+    - name: Blacklist python3.7
+      lineinfile:
+        path:  /etc/apt/apt.conf.d/50unattended-upgrades
+        insertafter: 'Unattended-Upgrade::Package-Blacklist {'
+        line: '    "python3.7";'
+
+    - name: Blacklist libpython3.7
+      lineinfile:
+        path:  /etc/apt/apt.conf.d/50unattended-upgrades
+        insertafter: 'Unattended-Upgrade::Package-Blacklist {'
+        line: '    "libpython3.7";'
+          
+          
+  handlers:
+    - name: Restart unattended-upgrades
+      service:
+        name: unattended-upgrades
+        state: restarted
+
