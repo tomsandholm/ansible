@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "repo": "YOUR_REPO_NAME",
+          "path": "YOUR_FOLDER_PATH"
+        }
+      },
+      "sort" : { "created" : "desc" },
+      "offset" : 2
+    }
+  ]
+}
+
