@@ -1,0 +1,37 @@
+---
+- name: Roll Ansible user keys
+  hosts: all  # Or a specific group of hosts where the keys need to be rolled
+  become: yes # Use privilege escalation if needed to manage the user's authorized_keys file
+
+  vars:
+    ansible_user_to_manage: "ansible" # The user whose keys are being rolled
+    new_public_key_path: "/home/ansible/newkey/id_rsa.pub" # Path to the new public key on the Ansible controller
+
+  tasks:
+    - name: Ensure the new public key exists on the Ansible controller
+      ansible.builtin.stat:
+        path: "{{ new_public_key_path }}"
+      register: new_key_stat
+      delegate_to: localhost
+      run_once: true
+
+    - name: Fail if the new public key does not exist
+      ansible.builtin.fail:
+        msg: "New public key file '{{ new_public_key_path }}' not found on the Ansible controller."
+      when: not new_key_stat.stat.exists
+      delegate_to: localhost
+      run_once: true
+
+    - name: Read the content of the new public key
+      ansible.builtin.slurp:
+        src: "{{ new_public_key_path }}"
+      register: new_key_content
+      delegate_to: localhost
+      run_once: true
+
+    - name: Add the new public key to authorized_keys and remove old ones (if any)
+      ansible.posix.authorized_key:
+        user: "{{ ansible_user_to_manage }}"
+        key: "{{ new_key_content['content'] | b64decode }}" # Decode the base64 content
+        state: present
+        exclusive: yes # This ensures only the specified key(s) are present, removing others

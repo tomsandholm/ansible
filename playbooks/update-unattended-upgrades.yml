@@ -20,12 +20,14 @@
         path:  /etc/apt/apt.conf.d/50unattended-upgrades
         insertafter: 'Unattended-Upgrade::Package-Blacklist {'
         line: '    "python3.7";'
+        regexp: '\s*python3.7";'
 
     - name: Blacklist libpython3.7
       lineinfile:
         path:  /etc/apt/apt.conf.d/50unattended-upgrades
         insertafter: 'Unattended-Upgrade::Package-Blacklist {'
         line: '    "libpython3.7";'
+        regexp: '\s*libpython3.7";'
           
           
   handlers:
