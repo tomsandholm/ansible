@@ -1,33 +1,40 @@
 ---
-- name: loop over users
+- name: Create users from users-list.yml
   hosts: all
   become: true
+  vars:
+    # Load user data once to avoid repeated file reads
+    users_data: "{{ lookup('file', 'users-list.yml') | from_yaml }}"
+
   tasks:
-    - name: create user
-      user:
+    - name: Ensure user accounts exist
+      ansible.builtin.user:
         name: "{{ item.login }}"
         uid: "{{ item.uid }}"
         home: "{{ item.home }}"
         shell: "{{ item.shell }}"
         groups: "{{ item.groups }}"
         state: present
-      loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
+        append: true
+      loop: "{{ users_data }}"
       when: inventory_hostname in item.hosts_present.split(',')
-    - name: add ssh key
-      authorized_key:
+
+    - name: Add SSH authorized keys
+      ansible.builtin.authorized_key:
         user: "{{ item.login }}"
         key: "{{ item.ssh_key }}"
         state: present
-      loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
+      loop: "{{ users_data }}"
       when: inventory_hostname in item.hosts_present.split(',')
-    - name: sudo access
+
+    - name: Configure sudo access for designated users
       community.general.sudoers:
         name: "{{ item.login }}"
         state: present
         user: "{{ item.login }}"
         commands: ALL
         nopassword: true
-      loop: "{{ lookup('file','users-list.yml') | from_yaml }}"
-      when: "(inventory_hostname in item.hosts_present.split(',')) and item.sudo"
-      
-
+      loop: "{{ users_data }}"
+      when: 
+        - inventory_hostname in item.hosts_present.split(',')
+        - item.sudo | bool
