@@ -1,0 +1,51 @@
+---
+- name: Provision users and assign to FQDN dashed group
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Read users from CSV file
+      community.general.read_csv:
+        path: users.csv
+      delegate_to: localhost
+      register: csv_users
+      run_once: true
+
+    - name: Ensure the primary group exists
+      ansible.builtin.group:
+        name: "{{ item.username | trim }}"
+        gid: "{{ item.gid | trim }}"
+        state: present
+      loop: "{{ csv_users.list }}"
+      when: item.hostname | trim | lower == inventory_hostname | trim | lower
+
+    - name: Ensure the FQDN dashed group exists
+      ansible.builtin.group:
+        name: "{{ ansible_facts['fqdn'] | replace('.', '-') }}"
+        state: present
+      run_once: false
+
+    - name: Create user accounts and assign to groups
+      ansible.builtin.user:
+        name: "{{ item.username | trim }}"
+        uid: "{{ item.uid | trim }}"
+        group: "{{ item.username | trim }}"
+        groups: "{{ ansible_facts['fqdn'] | replace('.', '-') }}"
+        append: true
+        comment: "{{ item.email | trim }}"
+        home: "{{ item.home_dir | trim }}"
+        shell: /bin/bash
+        state: present
+      loop: "{{ csv_users.list }}"
+      when: item.hostname | trim | lower == inventory_hostname | trim | lower
+
+    - name: Set up authorized SSH key
+      ansible.posix.authorized_key:
+        user: "{{ item.username | trim }}"
+        state: present
+        key: "{{ item.public_key | trim }}"
+      loop: "{{ csv_users.list }}"
+      when: 
+        - item.hostname | trim | lower == inventory_hostname | trim | lower
+        - item.public_key is defined and item.public_key | trim | length > 0
+

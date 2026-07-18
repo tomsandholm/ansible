@@ -1,0 +1,42 @@
+---
+- name: Unconditionally delete all CSV user accounts and groups on all systems
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Read users from CSV file
+      community.general.read_csv:
+        path: users.csv
+      delegate_to: localhost
+      register: csv_users
+      run_once: true
+
+    - name: Forcefully remove user accounts and delete home directories
+      ansible.builtin.user:
+        name: "{{ item.username | trim }}"
+        state: absent
+        remove: true
+        force: true  # <--- Forces deletion even if the user is currently logged in
+      loop: "{{ csv_users.list }}"
+
+    - name: Unconditionally remove primary user groups
+      ansible.builtin.group:
+        name: "{{ item.username | trim }}"
+        state: absent
+      loop: "{{ csv_users.list }}"
+
+    - name: Get status of the dashed FQDN group
+      ansible.builtin.getent:
+        database: group
+        key: "{{ ansible_facts['fqdn'] | replace('.', '-') }}"
+      register: fqdn_group_check
+      ignore_errors: true
+
+    - name: Clean up dashed FQDN group if empty
+      ansible.builtin.group:
+        name: "{{ ansible_facts['fqdn'] | replace('.', '-') }}"
+        state: absent
+      when: 
+        - fqdn_group_check.ansible_facts is defined
+        - fqdn_group_check.ansible_facts.getent_group[ansible_facts['fqdn'] | replace('.', '-')] == ""
+
