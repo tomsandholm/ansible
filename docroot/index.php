@@ -2,8 +2,12 @@
 // 1. START SESSION AND CONFIGURATION
 session_start();
 
-define('LDAP_SERVER', 'ldap://your-domain-controller.local'); 
-define('LDAP_DOMAIN', '@your-domain.local'); // Domain suffix for UPN auth
+// Define allowed users and their hashed passwords
+// Generate new hashes using: password_hash('your_password', PASSWORD_DEFAULT)
+$allowed_users = [
+    'admin' => '$2y$10$I1LP5Ly6BUc.q/bC47FcAu5LOh0uGg2GJz6ECRmPqaS6DzCFvhDuy',
+    'jdoe'  => '$2y$10$e0myVwYnDms5S4ZtK9OqEe7R8G8Vf.3J1D2o4M6m5N8y8w8x8z8z.'  // default pass: secure456
+];
 
 $errors = [];
 $success_message = "";
@@ -15,34 +19,20 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     exit;
 }
 
-// 3. HANDLE ACTIVE DIRECTORY AUTHENTICATION
+// 3. HANDLE LOCAL AUTHENTICATION
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_submit'])) {
-    $ad_user = trim($_POST['ad_user'] ?? '');
-    $ad_pass = $_POST['ad_pass'] ?? '';
+    $login_user = trim($_POST['login_user'] ?? '');
+    $login_pass = $_POST['login_pass'] ?? '';
 
-    if (empty($ad_user) || empty($ad_pass)) {
-        $errors[] = "Both Active Directory fields are required.";
+    if (empty($login_user) || empty($login_pass)) {
+        $errors[] = "Both username and password fields are required.";
     } else {
-        // Connect to LDAP server
-        $ldap_conn = ldap_connect(LDAP_SERVER);
-        if ($ldap_conn) {
-            ldap_set_option($ldap_conn, LDAP_OPT_PROTOCOL_VERSION, 3);
-            ldap_set_option($ldap_conn, LDAP_OPT_REFERRALS, 0);
-
-            // Authenticate using User Principal Name (UPN)
-            $user_principal = $ad_user . LDAP_DOMAIN;
-            $bind = @ldap_bind($ldap_conn, $user_principal, $ad_pass);
-
-            if ($bind) {
-                // Auth successful: store status in session
-                $_SESSION['authenticated'] = true;
-                $_SESSION['ad_username'] = $ad_user;
-                @ldap_close($ldap_conn);
-            } else {
-                $errors[] = "Invalid Active Directory credentials.";
-            }
+        // Check if user exists and password matches the hash
+        if (array_key_exists($login_user, $allowed_users) && password_verify($login_pass, $allowed_users[$login_user])) {
+            $_SESSION['authenticated'] = true;
+            $_SESSION['username'] = $login_user;
         } else {
-            $errors[] = "Could not connect to Active Directory server.";
+            $errors[] = "Invalid username or password.";
         }
     }
 }
@@ -59,24 +49,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
     if (empty($target_username) || empty($public_key)) {
         $errors[] = "Both target username and public key are required.";
     } else {
-        // Basic validation: ensure it looks like an SSH key (e.g., ssh-rsa, ssh-ed25519)
+        // Validation: ensure it looks like an SSH key (e.g., ssh-rsa, ssh-ed25519)
         if (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp256)\s+[A-Za-z0-9\/+=]+/i', $public_key)) {
             $errors[] = "Invalid public key format. Must start with a valid algorithm (e.g., ssh-rsa).";
         } else {
-            // SUCCESS: Process the data (e.g., save to DB, write to file, or update AD attribute)
-            // Example: file_put_contents("keys/" . basename($target_username) . ".pub", $public_key);
+            // SECURITY: Strip path characters to force the file into the local directory
+            $safe_username = preg_replace('/[^A-Za-z0-9_\-]/', '', basename($target_username));
             
-            $success_message = "Successfully submitted public key for user: " . htmlspecialchars($target_username);
+            if (empty($safe_username)) {
+                $errors[] = "Invalid target username characters.";
+            } else {
+                // Dynamically name the file based on the entered username
+                $csv_file = './pubkey/' . $safe_username . '.csv';
+                
+                // Clean up the key string to prevent breaking CSV row formatting
+                $clean_key = str_replace(array("\r", "\n"), '', $public_key);
+                
+                // Open the file in append mode ('a')
+                $file_handle = fopen($csv_file, 'a');
+                
+                if ($file_handle !== false) {
+                    // Write the username and key as a single CSV row
+                    fputcsv($file_handle, [$target_username, $clean_key]);
+                    fclose($file_handle);
+                    
+                    // Clear the session array and destroy it to completely log the user out
+                    $_SESSION = [];
+                    session_destroy();
+
+                    // Set a temporary cookie to show the message on the next page load
+                    setcookie('flash_success', "Key saved to {$csv_file}. You have been logged out.", time() + 5, "/");
+                    
+                    // Redirect to the same page to show the logged-out state cleanly
+                    header("Location: " . $_SERVER['PHP_SELF']);
+                    exit;
+                } else {
+                    $errors[] = "Error: Unable to write to the storage file. Check server folder permissions.";
+                }
+            }
         }
     }
 }
+
+// Read the flash message from cookie if it exists, then delete it
+if (isset($_COOKIE['flash_success'])) {
+    $success_message = htmlspecialchars($_COOKIE['flash_success']);
+    setcookie('flash_success', '', time() - 3600, "/");
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AD Auth & Key Submission</title>
+    <title>Simple Auth & Key Submission</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 40px; }
         .container { max-width: 500px; background: #fff; padding: 30px; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
@@ -85,8 +113,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
         label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
         input[type="text"], input[type="password"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
         textarea { height: 120px; font-family: monospace; resize: vertical; }
-        button { background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
-        button:hover { background: #0056b3; }
+        button { background: #28a745; color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
+        button:hover { background: #218838; }
         .error { color: #721c24; background: #f8d7da; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
         .success { color: #155724; background: #d4edda; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
         .status-bar { display: flex; justify-content: space-between; align-items: center; background: #e2e3e5; padding: 10px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
@@ -111,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
     <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true): ?>
         
         <div class="status-bar">
-            <span>Logged in as: <strong><?php echo htmlspecialchars($_SESSION['ad_username']); ?></strong></span>
+            <span>Logged in as: <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong></span>
             <a href="?action=logout" class="logout-btn">Log Out</a>
         </div>
 
@@ -131,15 +159,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
     <!-- PHASE 1: DISPLAY LOGIN FORM IF NOT AUTHENTICATED -->
     <?php else: ?>
         
-        <h2>Active Directory Login</h2>
+        <h2>Login</h2>
         <form method="POST" action="">
             <div class="form-group">
-                <label for="ad_user">AD Username:</label>
-                <input type="text" id="ad_user" name="ad_user" required placeholder="Domain Username">
+                <label for="login_user">Username:</label>
+                <input type="text" id="login_user" name="login_user" required placeholder="Username">
             </div>
             <div class="form-group">
-                <label for="ad_pass">AD Password:</label>
-                <input type="password" id="ad_pass" name="ad_pass" required placeholder="Password">
+                <label for="login_pass">Password:</label>
+                <input type="password" id="login_pass" name="login_pass" required placeholder="Password">
             </div>
             <button type="submit" name="login_submit">Log In</button>
         </form>
