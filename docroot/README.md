@@ -19,7 +19,7 @@ The web app does not write directly to `users.csv`. Instead, it drops a short-li
 | `pubkey/` | Drop directory for incoming `<username>.csv` key files |
 | `users.csv` | Master CSV file used by downstream automation (for example Ansible playbooks) |
 | `pubkey-watcher.sh` | Shell script that uses `inotifywait` to watch `pubkey/` |
-| `update-users-list.py` | Python helper that reads a drop file and updates `users.csv` |
+| `update-users-csv.py` | Python helper that reads a drop file and updates `users.csv` |
 | `pubkey-watcher.service` | systemd unit that runs the watcher continuously |
 
 ## Workflow

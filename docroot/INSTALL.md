@@ -28,14 +28,14 @@ Copy the contents of this directory to the web root:
 
 ```bash
 sudo mkdir -p /var/www/html/pubkey
-sudo cp index.php pubkey-watcher.sh update-users-list.py users.csv /var/www/html/
+sudo cp index.php pubkey-watcher.sh update-users-csv.py pubkey-watcher.service users.csv /var/www/html/
 sudo cp -r pubkey /var/www/html/
 ```
 
 Make the watcher scripts executable:
 
 ```bash
-sudo chmod +x /var/www/html/pubkey-watcher.sh /var/www/html/update-users-list.py
+sudo chmod +x /var/www/html/pubkey-watcher.sh /var/www/html/update-users-csv.py
 ```
 
 ## 3. Configure `users.csv`
@@ -200,7 +200,7 @@ Username,Public Key
 stu01,ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtest user@host
 EOF
 
-sudo python3 /var/www/html/update-users-list.py /tmp/test.csv /var/www/html/users.csv stu01
+sudo python3 /var/www/html/update-users-csv.py /tmp/test.csv /var/www/html/users.csv stu01
 grep stu01 /var/www/html/users.csv
 ```
 
@@ -225,7 +225,7 @@ grep stu01 /var/www/html/users.csv
 - Verify the file header includes `username` and `public_key` columns
 - Check logs: `journalctl -u pubkey-watcher -e`
 - Verify `inotify-tools` is installed: `which inotifywait`
-- Confirm `update-users-list.py` is executable
+- Confirm `update-users-csv.py` is executable
 
 ### Drop file remains in `pubkey/`
 

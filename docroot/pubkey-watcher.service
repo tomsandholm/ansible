@@ -1,5 +1,5 @@
 [Unit]
-Description=Watch /var/www/html/pubkey and update users.list
+Description=Watch /var/www/html/pubkey and update users.csv
 After=network.target
 
 [Service]

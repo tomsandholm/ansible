@@ -3,8 +3,8 @@ set -euo pipefail
 
 WORKDIR="/var/www/html"
 PUBKEY_DIR="${WORKDIR}/pubkey"
-USERS_LIST="${WORKDIR}/users.list"
-UPDATE_SCRIPT="${WORKDIR}/update-users-list.py"
+USERS_CSV="${WORKDIR}/users.csv"
+UPDATE_SCRIPT="${WORKDIR}/update-users-csv.py"
 
 log() {
     logger -t pubkey-watcher -- "$*"
@@ -29,9 +29,9 @@ process_pubkey_file() {
     # Brief pause so writers can finish flushing the file.
     sleep 0.2
 
-    if python3 "$UPDATE_SCRIPT" "$filepath" "$USERS_LIST" "$username"; then
+    if python3 "$UPDATE_SCRIPT" "$filepath" "$USERS_CSV" "$username"; then
         rm -f "$filepath"
-        log "updated pub_key for ${username} in users.list"
+        log "updated public_key for ${username} in users.csv"
     else
         log "failed to process ${filepath}"
         return 1
@@ -40,6 +40,11 @@ process_pubkey_file() {
 
 if ! command -v inotifywait >/dev/null 2>&1; then
     log "inotifywait not found; install inotify-tools"
+    exit 1
+fi
+
+if [[ ! -f "$USERS_CSV" ]]; then
+    log "users file not found: ${USERS_CSV}"
     exit 1
 fi
 
