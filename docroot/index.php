@@ -1,102 +1,151 @@
 <?php
-// 1. START SESSION AND CONFIGURATION
 session_start();
 
-// Define allowed users and their hashed passwords
-// Generate new hashes using: password_hash('your_password', PASSWORD_DEFAULT)
-$allowed_users = [
-    'admin' => '$2y$10$I1LP5Ly6BUc.q/bC47FcAu5LOh0uGg2GJz6ECRmPqaS6DzCFvhDuy',
-    'jdoe'  => '$2y$10$e0myVwYnDms5S4ZtK9OqEe7R8G8Vf.3J1D2o4M6m5N8y8w8x8z8z.'  // default pass: secure456
-];
+// Active Directory configuration
+define('AD_SERVER', 'pa-infn-dc01.infinera.com');
+define('AD_DOMAIN', 'infinera.com');
+define('AD_NETBIOS', 'INFINERA');
+define('PUBKEY_DIR', __DIR__ . '/pubdir');
 
 $errors = [];
-$success_message = "";
+$success_message = '';
 
-// 2. HANDLE LOGOUT
+/**
+ * Authenticate a user against Active Directory via LDAP bind.
+ *
+ * @return array{0: bool, 1: ?string} [success, error message]
+ */
+function authenticate_ad(string $username, string $password): array
+{
+    if (!function_exists('ldap_connect')) {
+        return [false, 'PHP LDAP extension is not installed on this server.'];
+    }
+
+    if ($username === '' || $password === '') {
+        return [false, 'Both username and password are required.'];
+    }
+
+    $ldap = @ldap_connect('ldap://' . AD_SERVER);
+    if ($ldap === false) {
+        return [false, 'Could not connect to Active Directory server.'];
+    }
+
+    ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+    ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
+    ldap_set_option($ldap, LDAP_OPT_NETWORK_TIMEOUT, 10);
+
+    $bind_identities = [];
+    if (strpos($username, '@') !== false || strpos($username, '\\') !== false) {
+        $bind_identities[] = $username;
+    } else {
+        $bind_identities[] = $username . '@' . AD_DOMAIN;
+        $bind_identities[] = AD_NETBIOS . '\\' . $username;
+    }
+
+    foreach ($bind_identities as $bind_dn) {
+        if (@ldap_bind($ldap, $bind_dn, $password)) {
+            ldap_unbind($ldap);
+            return [true, null];
+        }
+    }
+
+    ldap_unbind($ldap);
+    return [false, 'Invalid username or password.'];
+}
+
+/**
+ * Extract a safe username for use as a filename.
+ */
+function sanitize_username(string $username): string
+{
+    return preg_replace('/[^A-Za-z0-9_\-]/', '', basename($username));
+}
+
+// Handle logout
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    $_SESSION = [];
+    if (ini_get('session.use_cookies')) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    }
     session_destroy();
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header('Location: ' . $_SERVER['PHP_SELF']);
     exit;
 }
 
-// 3. HANDLE LOCAL AUTHENTICATION
+// Handle Active Directory login
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_submit'])) {
     $login_user = trim($_POST['login_user'] ?? '');
     $login_pass = $_POST['login_pass'] ?? '';
 
-    if (empty($login_user) || empty($login_pass)) {
-        $errors[] = "Both username and password fields are required.";
+    [$authenticated, $auth_error] = authenticate_ad($login_user, $login_pass);
+    if ($authenticated) {
+        $_SESSION['authenticated'] = true;
+        $_SESSION['username'] = strpos($login_user, '\\') !== false
+            ? substr($login_user, strrpos($login_user, '\\') + 1)
+            : (strpos($login_user, '@') !== false ? strstr($login_user, '@', true) : $login_user);
     } else {
-        // Check if user exists and password matches the hash
-        if (array_key_exists($login_user, $allowed_users) && password_verify($login_pass, $allowed_users[$login_user])) {
-            $_SESSION['authenticated'] = true;
-            $_SESSION['username'] = $login_user;
-        } else {
-            $errors[] = "Invalid username or password.";
-        }
+        $errors[] = $auth_error;
     }
 }
 
-// 4. HANDLE PUBLIC KEY SUBMISSION (AUTHENTICATED USERS ONLY)
+// Handle public key submission (authenticated users only)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
     if (!isset($_SESSION['authenticated'])) {
-        die("Unauthorized access.");
+        http_response_code(401);
+        die('Unauthorized access.');
     }
 
     $target_username = trim($_POST['target_username'] ?? '');
     $public_key = trim($_POST['public_key'] ?? '');
 
-    if (empty($target_username) || empty($public_key)) {
-        $errors[] = "Both target username and public key are required.";
+    if ($target_username === '' || $public_key === '') {
+        $errors[] = 'Both username and public key are required.';
+    } elseif (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp256)\s+[A-Za-z0-9\/+=]+/i', $public_key)) {
+        $errors[] = 'Invalid public key format. Must start with a valid algorithm (e.g., ssh-rsa).';
     } else {
-        // Validation: ensure it looks like an SSH key (e.g., ssh-rsa, ssh-ed25519)
-        if (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp256)\s+[A-Za-z0-9\/+=]+/i', $public_key)) {
-            $errors[] = "Invalid public key format. Must start with a valid algorithm (e.g., ssh-rsa).";
+        $safe_username = sanitize_username($target_username);
+
+        if ($safe_username === '') {
+            $errors[] = 'Invalid username characters.';
         } else {
-            // SECURITY: Strip path characters to force the file into the local directory
-            $safe_username = preg_replace('/[^A-Za-z0-9_\-]/', '', basename($target_username));
-            
-            if (empty($safe_username)) {
-                $errors[] = "Invalid target username characters.";
+            if (!is_dir(PUBKEY_DIR) && !mkdir(PUBKEY_DIR, 0750, true)) {
+                $errors[] = 'Error: Unable to create storage directory. Check server folder permissions.';
             } else {
-                // Dynamically name the file based on the entered username
-                $csv_file = './pubkey/' . $safe_username . '.csv';
-                
-                // Clean up the key string to prevent breaking CSV row formatting
-                $clean_key = str_replace(array("\r", "\n"), '', $public_key);
-                
-                // Open the file in append mode ('a')
+                $csv_file = PUBKEY_DIR . '/' . $safe_username . '.csv';
+                $clean_key = str_replace(["\r", "\n"], '', $public_key);
+                $file_exists = file_exists($csv_file);
                 $file_handle = fopen($csv_file, 'a');
-                
+
                 if ($file_handle !== false) {
-                    // Write the username and key as a single CSV row
+                    if (!$file_exists) {
+                        fputcsv($file_handle, ['Username', 'Public Key']);
+                    }
                     fputcsv($file_handle, [$target_username, $clean_key]);
                     fclose($file_handle);
-                    
-                    // Clear the session array and destroy it to completely log the user out
+
                     $_SESSION = [];
+                    if (ini_get('session.use_cookies')) {
+                        $params = session_get_cookie_params();
+                        setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+                    }
                     session_destroy();
 
-                    // Set a temporary cookie to show the message on the next page load
-                    setcookie('flash_success', "Key saved to {$csv_file}. You have been logged out.", time() + 5, "/");
-                    
-                    // Redirect to the same page to show the logged-out state cleanly
-                    header("Location: " . $_SERVER['PHP_SELF']);
+                    setcookie('flash_success', 'Key saved to pubdir/' . $safe_username . '.csv. You have been logged out.', time() + 5, '/');
+                    header('Location: ' . $_SERVER['PHP_SELF']);
                     exit;
-                } else {
-                    $errors[] = "Error: Unable to write to the storage file. Check server folder permissions.";
                 }
+
+                $errors[] = 'Error: Unable to write to the storage file. Check server folder permissions.';
             }
         }
     }
 }
 
-// Read the flash message from cookie if it exists, then delete it
 if (isset($_COOKIE['flash_success'])) {
     $success_message = htmlspecialchars($_COOKIE['flash_success']);
-    setcookie('flash_success', '', time() - 3600, "/");
+    setcookie('flash_success', '', time() - 3600, '/');
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -104,7 +153,7 @@ if (isset($_COOKIE['flash_success'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Auth & Key Submission</title>
+    <title>SSH Key Registration</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 40px; }
         .container { max-width: 500px; background: #fff; padding: 30px; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
@@ -119,25 +168,24 @@ if (isset($_COOKIE['flash_success'])) {
         .success { color: #155724; background: #d4edda; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
         .status-bar { display: flex; justify-content: space-between; align-items: center; background: #e2e3e5; padding: 10px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; }
         .logout-btn { color: #dc3545; text-decoration: none; font-weight: bold; }
+        .hint { font-size: 13px; color: #666; margin-top: 4px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- DISPLAY ERRORS OR SUCCESS -->
     <?php if (!empty($errors)): ?>
         <div class="error">
-            <?php foreach ($errors as $error) { echo htmlspecialchars($error) . "<br>"; } ?>
+            <?php foreach ($errors as $error) { echo htmlspecialchars($error) . '<br>'; } ?>
         </div>
     <?php endif; ?>
 
-    <?php if (!empty($success_message)): ?>
+    <?php if ($success_message !== ''): ?>
         <div class="success"><?php echo $success_message; ?></div>
     <?php endif; ?>
 
-    <!-- PHASE 2: DISPLAY PUBLIC KEY FORM IF AUTHENTICATED -->
     <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true): ?>
-        
+
         <div class="status-bar">
             <span>Logged in as: <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong></span>
             <a href="?action=logout" class="logout-btn">Log Out</a>
@@ -146,8 +194,9 @@ if (isset($_COOKIE['flash_success'])) {
         <h2>Submit Public Key</h2>
         <form method="POST" action="">
             <div class="form-group">
-                <label for="target_username">Target Username:</label>
-                <input type="text" id="target_username" name="target_username" required placeholder="e.g., jdoe">
+                <label for="target_username">Username:</label>
+                <input type="text" id="target_username" name="target_username" required placeholder="e.g., jdoe" value="<?php echo htmlspecialchars($_SESSION['username']); ?>">
+                <p class="hint">SSH key will be saved to pubdir/&lt;username&gt;.csv</p>
             </div>
             <div class="form-group">
                 <label for="public_key">SSH Public Key:</label>
@@ -156,18 +205,17 @@ if (isset($_COOKIE['flash_success'])) {
             <button type="submit" name="key_submit">Submit Key</button>
         </form>
 
-    <!-- PHASE 1: DISPLAY LOGIN FORM IF NOT AUTHENTICATED -->
     <?php else: ?>
-        
-        <h2>Login</h2>
+
+        <h2>Active Directory Login</h2>
         <form method="POST" action="">
             <div class="form-group">
                 <label for="login_user">Username:</label>
-                <input type="text" id="login_user" name="login_user" required placeholder="Username">
+                <input type="text" id="login_user" name="login_user" required placeholder="jdoe or jdoe@infinera.com" autocomplete="username">
             </div>
             <div class="form-group">
                 <label for="login_pass">Password:</label>
-                <input type="password" id="login_pass" name="login_pass" required placeholder="Password">
+                <input type="password" id="login_pass" name="login_pass" required placeholder="Password" autocomplete="current-password">
             </div>
             <button type="submit" name="login_submit">Log In</button>
         </form>
@@ -177,4 +225,3 @@ if (isset($_COOKIE['flash_success'])) {
 
 </body>
 </html>
-
