@@ -9,13 +9,14 @@ import sys
 import tempfile
 
 PUBLIC_KEY_COLUMNS = {"public_key", "pub_key"}
+USERNAME_COLUMNS = {"username", "user"}
 
 
 def normalize_header(name: str) -> str:
     return name.strip().lower().replace(" ", "_")
 
 
-def extract_public_key(pubkey_file: str) -> str:
+def extract_pubkey_data(pubkey_file: str) -> tuple[str, str]:
     with open(pubkey_file, newline="", encoding="utf-8") as handle:
         rows = [row for row in csv.reader(handle) if row]
 
@@ -23,20 +24,41 @@ def extract_public_key(pubkey_file: str) -> str:
         raise ValueError(f"{pubkey_file} is empty")
 
     header = [normalize_header(cell) for cell in rows[0]]
+    has_header = any(
+        cell in USERNAME_COLUMNS or cell in PUBLIC_KEY_COLUMNS for cell in header
+    )
 
-    if any(cell in PUBLIC_KEY_COLUMNS for cell in header):
-        key_idx = next(i for i, cell in enumerate(header) if cell in PUBLIC_KEY_COLUMNS)
+    if has_header:
+        try:
+            user_idx = next(
+                i for i, cell in enumerate(header) if cell in USERNAME_COLUMNS
+            )
+            key_idx = next(
+                i for i, cell in enumerate(header) if cell in PUBLIC_KEY_COLUMNS
+            )
+        except StopIteration as exc:
+            raise ValueError(
+                f"{pubkey_file} must contain username and public key columns"
+            ) from exc
+
         for row in reversed(rows[1:]):
-            if len(row) > key_idx and row[key_idx].strip():
-                return row[key_idx].strip()
+            if len(row) <= max(user_idx, key_idx):
+                continue
+            username = row[user_idx].strip()
+            public_key = row[key_idx].strip()
+            if username and public_key:
+                return username, public_key
+
+        raise ValueError(f"could not extract username and public key from {pubkey_file}")
 
     last_row = rows[-1]
-    if len(last_row) >= 2 and normalize_header(last_row[0]) not in {"username", "user"}:
-        return last_row[1].strip()
-    if len(last_row) == 1:
-        return last_row[0].strip()
+    if len(last_row) >= 2:
+        username = last_row[0].strip()
+        public_key = last_row[1].strip()
+        if username and public_key:
+            return username, public_key
 
-    raise ValueError(f"could not extract public key from {pubkey_file}")
+    raise ValueError(f"could not extract username and public key from {pubkey_file}")
 
 
 def update_users_csv(users_file: str, username: str, public_key: str) -> None:
@@ -54,7 +76,7 @@ def update_users_csv(users_file: str, username: str, public_key: str) -> None:
 
         for name in fieldnames:
             normalized = normalize_header(name)
-            if normalized in {"username", "user"}:
+            if normalized in USERNAME_COLUMNS:
                 user_col = name
             if normalized in PUBLIC_KEY_COLUMNS:
                 key_col = name
@@ -93,15 +115,15 @@ def update_users_csv(users_file: str, username: str, public_key: str) -> None:
 
 
 def main() -> int:
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 3:
         print(
-            f"usage: {sys.argv[0]} <pubkey.csv> <users.csv> <username>",
+            f"usage: {sys.argv[0]} <pubkey.csv> <users.csv>",
             file=sys.stderr,
         )
         return 2
 
-    pubkey_file, users_file, username = sys.argv[1:4]
-    public_key = extract_public_key(pubkey_file)
+    pubkey_file, users_file = sys.argv[1:3]
+    username, public_key = extract_pubkey_data(pubkey_file)
     update_users_csv(users_file, username, public_key)
     return 0
 

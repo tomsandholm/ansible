@@ -200,7 +200,7 @@ Username,Public Key
 stu01,ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtest user@host
 EOF
 
-sudo python3 /var/www/html/update-users-csv.py /tmp/test.csv /var/www/html/users.csv stu01
+sudo python3 /var/www/html/update-users-csv.py /tmp/test.csv /var/www/html/users.csv
 grep stu01 /var/www/html/users.csv
 ```
 

@@ -29,7 +29,7 @@ process_pubkey_file() {
     # Brief pause so writers can finish flushing the file.
     sleep 0.2
 
-    if python3 "$UPDATE_SCRIPT" "$filepath" "$USERS_CSV" "$username"; then
+    if python3 "$UPDATE_SCRIPT" "$filepath" "$USERS_CSV"; then
         rm -f "$filepath"
         log "updated public_key for ${username} in users.csv"
     else
