@@ -5,7 +5,7 @@ session_start();
 define('AD_SERVER', 'pa-infn-dc01.infinera.com');
 define('AD_DOMAIN', 'infinera.com');
 define('AD_NETBIOS', 'INFINERA');
-define('PUBKEY_DIR', __DIR__ . '/pubdir');
+define('PUBKEY_DIR', __DIR__ . '/pubkey');
 
 $errors = [];
 $success_message = '';
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
                     }
                     session_destroy();
 
-                    setcookie('flash_success', 'Key saved to pubdir/' . $safe_username . '.csv. You have been logged out.', time() + 5, '/');
+                    setcookie('flash_success', 'Key saved to pubkey/' . $safe_username . '.csv. You have been logged out.', time() + 5, '/');
                     header('Location: ' . $_SERVER['PHP_SELF']);
                     exit;
                 }
@@ -196,7 +196,7 @@ if (isset($_COOKIE['flash_success'])) {
             <div class="form-group">
                 <label for="target_username">Username:</label>
                 <input type="text" id="target_username" name="target_username" required placeholder="e.g., jdoe" value="<?php echo htmlspecialchars($_SESSION['username']); ?>">
-                <p class="hint">SSH key will be saved to pubdir/&lt;username&gt;.csv</p>
+                <p class="hint">SSH key will be saved to pubkey/&lt;username&gt;.csv</p>
             </div>
             <div class="form-group">
                 <label for="public_key">SSH Public Key:</label>
