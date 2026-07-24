@@ -1,0 +1,82 @@
+# Installed Packages - WSL2 Ubuntu 24.04.4 LTS
+# Generated: 2026-07-24 20:07:13 UTC
+# Host: C-5CFPXC4
+#
+# Summary:
+#   dpkg (all system packages):     1000
+#   apt (manually installed):       63
+#   snap:                           9
+#   pip3:                           66
+#
+# Detailed lists are in separate files:
+#   installed-packages-dpkg.txt        - All .deb packages (name, version, arch)
+#   installed-packages-apt-manual.txt  - Packages explicitly installed by user
+#   installed-packages-snap.txt        - Snap packages
+#   installed-packages-pip3.txt        - Python pip packages
+#
+# =============================================================================
+# Manually installed apt packages (63)
+# =============================================================================
+apt-transport-https
+autoconf
+automake
+base-files
+bash
+bind9-dnsutils
+bsdutils
+build-essential
+ca-certificates
+checkinstall
+chromium-browser
+cifs-utils
+cockpit
+cockpit-machines
+cockpit-pcp
+containerd.io
+coreutils
+cpu-checker
+curl
+dash
+debianutils
+diffutils
+docker-buildx-plugin
+docker-ce
+docker-ce-cli
+docker-ce-rootless-extras
+docker-compose-plugin
+docker-model-plugin
+findutils
+gh
+gnupg2
+google-chrome-stable
+grep
+gzip
+hashalot
+hostname
+init
+libattr1
+libtool
+libvirt-clients
+libvirt-daemon-system
+login
+mariadb-server
+ncurses-base
+ncurses-bin
+net-tools
+network-manager
+nfs-common
+python3
+python3-pip
+qemu-system-x86
+tcl
+tk
+tree
+ubuntu-minimal
+ubuntu-wsl
+unzip
+util-linux
+virt-manager
+wmdocker
+x11-xserver-utils
+xfonts-base
+xterm

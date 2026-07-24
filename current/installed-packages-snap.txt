@@ -1,0 +1,9 @@
+bare	1.0	5
+chromium	150.0.7871.128	3499
+core22	20260225	2411
+core24	20260410	1643
+cups	2.4.19-2	1229
+gnome-46-2404	0+git.b31ceab-sdk0+git.f0723a0	164
+gtk-common-themes	0.1-81-g442e511	1535
+mesa-2404	25.2.8-snap288	1839
+snapd	2.76.1	27591
