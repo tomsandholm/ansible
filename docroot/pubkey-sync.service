@@ -1,0 +1,13 @@
+[Unit]
+Description=Move pubkey drop files to ansible playbooks/files
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/html
+ExecStart=/var/www/html/pubkey-sync.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,20 +1,184 @@
 <?php
 session_start();
 
-// Active Directory configuration
 define('AD_SERVER', 'pa-infn-dc01.infinera.com');
 define('AD_DOMAIN', 'infinera.com');
 define('AD_NETBIOS', 'INFINERA');
 define('PUBKEY_DIR', __DIR__ . '/pubkey');
+define('USERS_CSV', PUBKEY_DIR . '/users.csv');
 
 $errors = [];
 $success_message = '';
 
 /**
- * Authenticate a user against Active Directory via LDAP bind.
+ * Check whether a username exists in users.csv using a shared file lock.
  *
- * @return array{0: bool, 1: ?string} [success, error message]
+ * @return array{0: bool, 1: ?string}
  */
+function user_exists_in_csv(string $csv_path, string $username): array
+{
+    if (!is_file($csv_path)) {
+        return [false, 'users.csv not found.'];
+    }
+
+    $handle = fopen($csv_path, 'r');
+    if ($handle === false) {
+        return [false, 'Unable to open users.csv.'];
+    }
+
+    if (!flock($handle, LOCK_SH)) {
+        fclose($handle);
+        return [false, 'Unable to lock users.csv.'];
+    }
+
+    try {
+        $header = fgetcsv($handle);
+        if ($header === false) {
+            return [false, 'users.csv is empty.'];
+        }
+
+        $user_idx = array_search('username', $header, true);
+        if ($user_idx === false) {
+            return [false, 'users.csv must contain a username column.'];
+        }
+
+        while (($row = fgetcsv($handle)) !== false) {
+            if (count($row) === count($header) && $row[$user_idx] === $username) {
+                return [true, null];
+            }
+        }
+
+        return [false, "Username {$username} is not authorized. Contact an administrator to be added to users.csv."];
+    } finally {
+        flock($handle, LOCK_UN);
+        fclose($handle);
+    }
+}
+
+/**
+ * Update public_key for a username in users.csv using an exclusive file lock.
+ *
+ * @return array{0: bool, 1: ?string}
+ */
+function update_users_csv_locked(string $csv_path, string $username, string $public_key): array
+{
+    if (!is_file($csv_path)) {
+        return [false, 'users.csv not found.'];
+    }
+
+    $handle = fopen($csv_path, 'r+');
+    if ($handle === false) {
+        return [false, 'Unable to open users.csv.'];
+    }
+
+    if (!flock($handle, LOCK_EX)) {
+        fclose($handle);
+        return [false, 'Unable to lock users.csv.'];
+    }
+
+    try {
+        $header = fgetcsv($handle);
+        if ($header === false) {
+            return [false, 'users.csv is empty.'];
+        }
+
+        $user_idx = array_search('username', $header, true);
+        $key_idx = array_search('public_key', $header, true);
+        if ($user_idx === false || $key_idx === false) {
+            return [false, 'users.csv must contain username and public_key columns.'];
+        }
+
+        $rows = [];
+        $updated = false;
+
+        while (($row = fgetcsv($handle)) !== false) {
+            if (count($row) !== count($header)) {
+                continue;
+            }
+
+            if ($row[$user_idx] === $username) {
+                $row[$key_idx] = $public_key;
+                $updated = true;
+            }
+
+            $rows[] = $row;
+        }
+
+        if (!$updated) {
+            return [false, "Username {$username} not found in users.csv."];
+        }
+
+        ftruncate($handle, 0);
+        rewind($handle);
+        fputcsv($handle, $header);
+
+        foreach ($rows as $row) {
+            fputcsv($handle, $row);
+        }
+
+        fflush($handle);
+
+        return [true, null];
+    } finally {
+        flock($handle, LOCK_UN);
+        fclose($handle);
+    }
+}
+
+/**
+ * Read a pubkey file, update users.csv, and remove the drop file.
+ *
+ * @return array{0: bool, 1: ?string}
+ */
+function process_pubkey_file(string $pub_file): array
+{
+    if (!is_file($pub_file)) {
+        return [true, null];
+    }
+
+    $filename = basename($pub_file);
+    if (!preg_match('/^([A-Za-z0-9_-]+)\.pub$/', $filename, $matches)) {
+        return [false, "Invalid pubkey filename: {$filename}"];
+    }
+
+    $username = $matches[1];
+    $public_key = trim(str_replace(["\r", "\n"], '', (string) file_get_contents($pub_file)));
+
+    if ($public_key === '') {
+        return [false, "Pubkey file is empty: {$filename}"];
+    }
+
+    if (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp256)\s+[A-Za-z0-9\/+=]+/i', $public_key)) {
+        return [false, "Invalid public key in {$filename}."];
+    }
+
+    [$updated, $error] = update_users_csv_locked(USERS_CSV, $username, $public_key);
+    if (!$updated) {
+        return [false, $error];
+    }
+
+    if (!unlink($pub_file)) {
+        return [false, "Updated users.csv but failed to remove {$filename} from pubkey."];
+    }
+
+    return [true, null];
+}
+
+/**
+ * Process any pubkey drop files waiting in the pubkey directory.
+ */
+function process_pending_pubkeys(): void
+{
+    foreach (glob(PUBKEY_DIR . '/*.pub') ?: [] as $pub_file) {
+        [$ok, $error] = process_pubkey_file($pub_file);
+        if (!$ok) {
+            error_log('pubkey processing failed for ' . basename($pub_file) . ': ' . $error);
+        }
+    }
+}
+
+process_pending_pubkeys();
+
 function authenticate_ad(string $username, string $password): array
 {
     if (!function_exists('ldap_connect')) {
@@ -53,27 +217,27 @@ function authenticate_ad(string $username, string $password): array
     return [false, 'Invalid username or password.'];
 }
 
-/**
- * Extract a safe username for use as a filename.
- */
-function sanitize_username(string $username): string
+function sanitize_login_name(string $login_name): string
 {
-    return preg_replace('/[^A-Za-z0-9_\-]/', '', basename($username));
+    return preg_replace('/[^A-Za-z0-9_\-]/', '', basename($login_name));
 }
 
-// Handle logout
-if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+function destroy_session(): void
+{
     $_SESSION = [];
     if (ini_get('session.use_cookies')) {
         $params = session_get_cookie_params();
         setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
     }
     session_destroy();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    destroy_session();
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit;
 }
 
-// Handle Active Directory login
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_submit'])) {
     $login_user = trim($_POST['login_user'] ?? '');
     $login_pass = $_POST['login_pass'] ?? '';
@@ -89,54 +253,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_submit'])) {
     }
 }
 
-// Handle public key submission (authenticated users only)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['key_submit'])) {
     if (!isset($_SESSION['authenticated'])) {
         http_response_code(401);
         die('Unauthorized access.');
     }
 
-    $target_username = trim($_POST['target_username'] ?? '');
+    $login_name = trim($_POST['login_name'] ?? '');
     $public_key = trim($_POST['public_key'] ?? '');
 
-    if ($target_username === '' || $public_key === '') {
-        $errors[] = 'Both username and public key are required.';
+    if ($login_name === '' || $public_key === '') {
+        $errors[] = 'Both login name and public key are required.';
     } elseif (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa-sha2-nistp256)\s+[A-Za-z0-9\/+=]+/i', $public_key)) {
         $errors[] = 'Invalid public key format. Must start with a valid algorithm (e.g., ssh-rsa).';
     } else {
-        $safe_username = sanitize_username($target_username);
+        $safe_login_name = sanitize_login_name($login_name);
 
-        if ($safe_username === '') {
-            $errors[] = 'Invalid username characters.';
+        if ($safe_login_name === '') {
+            $errors[] = 'Invalid login name characters.';
+        } elseif (!is_dir(PUBKEY_DIR) && !mkdir(PUBKEY_DIR, 0750, true)) {
+            $errors[] = 'Error: Unable to create pubkey directory. Check server folder permissions.';
         } else {
-            if (!is_dir(PUBKEY_DIR) && !mkdir(PUBKEY_DIR, 0750, true)) {
-                $errors[] = 'Error: Unable to create storage directory. Check server folder permissions.';
+            [$authorized, $auth_error] = user_exists_in_csv(USERS_CSV, $safe_login_name);
+            if (!$authorized) {
+                $errors[] = $auth_error ?? 'Username is not authorized.';
             } else {
-                $csv_file = PUBKEY_DIR . '/' . $safe_username . '.csv';
-                $clean_key = str_replace(["\r", "\n"], '', $public_key);
-                $file_exists = file_exists($csv_file);
-                $file_handle = fopen($csv_file, 'a');
+                $pub_file = PUBKEY_DIR . '/' . $safe_login_name . '.pub';
+                $clean_key = str_replace(["\r", "\n"], '', $public_key) . "\n";
 
-                if ($file_handle !== false) {
-                    if (!$file_exists) {
-                        fputcsv($file_handle, ['Username', 'Public Key']);
+                if (file_put_contents($pub_file, $clean_key, LOCK_EX) === false) {
+                    $errors[] = 'Error: Unable to write public key file. Check server folder permissions.';
+                } else {
+                    [$updated, $csv_error] = process_pubkey_file($pub_file);
+                    if (!$updated) {
+                        $errors[] = $csv_error ?? 'Error: Unable to update users.csv.';
+                    } else {
+                        destroy_session();
+                        setcookie(
+                            'flash_success',
+                            'Public key saved and users.csv updated for ' . $safe_login_name . '. You have been logged out.',
+                            time() + 5,
+                            '/'
+                        );
+                        header('Location: ' . $_SERVER['PHP_SELF']);
+                        exit;
                     }
-                    fputcsv($file_handle, [$target_username, $clean_key]);
-                    fclose($file_handle);
-
-                    $_SESSION = [];
-                    if (ini_get('session.use_cookies')) {
-                        $params = session_get_cookie_params();
-                        setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-                    }
-                    session_destroy();
-
-                    setcookie('flash_success', 'Key saved to pubkey/' . $safe_username . '.csv. You have been logged out.', time() + 5, '/');
-                    header('Location: ' . $_SERVER['PHP_SELF']);
-                    exit;
                 }
-
-                $errors[] = 'Error: Unable to write to the storage file. Check server folder permissions.';
             }
         }
     }
@@ -194,15 +356,15 @@ if (isset($_COOKIE['flash_success'])) {
         <h2>Submit Public Key</h2>
         <form method="POST" action="">
             <div class="form-group">
-                <label for="target_username">Username:</label>
-                <input type="text" id="target_username" name="target_username" required placeholder="e.g., jdoe" value="<?php echo htmlspecialchars($_SESSION['username']); ?>">
-                <p class="hint">SSH key will be saved to pubkey/&lt;username&gt;.csv</p>
+                <label for="login_name">Login Name:</label>
+                <input type="text" id="login_name" name="login_name" required placeholder="e.g., jdoe" value="<?php echo htmlspecialchars($_SESSION['username']); ?>">
+                <p class="hint">Key updates users.csv and is removed from pubkey/ after processing</p>
             </div>
             <div class="form-group">
                 <label for="public_key">SSH Public Key:</label>
                 <textarea id="public_key" name="public_key" required placeholder="ssh-rsa AAAAB3NzaC1yc2E..."></textarea>
             </div>
-            <button type="submit" name="key_submit">Submit Key</button>
+            <button type="submit" name="key_submit">Submit</button>
         </form>
 
     <?php else: ?>
