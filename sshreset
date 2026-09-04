@@ -1,0 +1,4 @@
+#! /usr/bin/bash
+
+list="${*?Must specify hosts}"
+echo $list | xargs -n1 ssh-keygen -f '/home/sandholm/.ssh/known_hosts' -R 
